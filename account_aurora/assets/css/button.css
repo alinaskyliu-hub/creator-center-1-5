@@ -1,0 +1,511 @@
+:root {
+  --button-color-primary: var(--color-action-primary);
+  --button-color-primary-hover: var(--color-action-primary-hover);
+  --button-color-border: var(--color-border-default);
+  --button-color-secondary-bg: color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+  --button-color-secondary-bg-hover: color-mix(in srgb, var(--color-text-primary) 20%, transparent);
+  --button-color-outline-bg-hover: var(--color-bg-hover);
+  --button-color-text-bg-hover: var(--color-action-neutral-bg-hover);
+  --button-height-small: 28px;
+  --button-height-medium: 30px;
+  --button-height-default: 32px;
+  --button-height-large: 36px;
+  --button-icon-size: 14px;
+  --button-icon-only-size: 32px;
+  --button-radius: var(--radius-default);
+  --button-font-size: var(--font-style-body-size);
+  --button-font-weight: var(--font-style-body-weight);
+  --button-gap: 5px;
+  --button-disabled-opacity: 0.6;
+  --button-motion-duration: 0.15s;
+}
+
+button:is(
+  .spec-btn,
+  .pc-btn,
+  .nt-btn,
+  .demo-button,
+  .message-trigger,
+  .alert-action,
+  .verification-action,
+  .upload-file-retry,
+  .splitter-reset,
+  .statistic-action,
+  .spec-list-action,
+  .tabs-action,
+  .table-search-action,
+  .automation-spec-action
+) {
+  display: inline-flex;
+  min-height: var(--button-height-default);
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  padding: 0 14px;
+  color: var(--color-text-default);
+  background: var(--color-bg-container);
+  border: 1px solid var(--button-color-border);
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: 1.2;
+  transition:
+    background-color var(--button-motion-duration) ease,
+    border-color var(--button-motion-duration) ease,
+    color var(--button-motion-duration) ease,
+    box-shadow var(--button-motion-duration) ease;
+}
+
+button:is(
+  .spec-btn,
+  .pc-btn,
+  .nt-btn,
+  .demo-button,
+  .message-trigger,
+  .alert-action,
+  .verification-action,
+  .upload-file-retry,
+  .splitter-reset,
+  .statistic-action,
+  .spec-list-action,
+  .tabs-action,
+  .table-search-action,
+  .automation-spec-action
+):hover {
+  color: var(--color-text-default);
+  background: var(--button-color-outline-bg-hover);
+  border-color: var(--button-color-border);
+}
+
+button[class].primary,
+button[class].primary-solid {
+  color: var(--color-text-inverse);
+  background: var(--button-color-primary);
+  border-color: var(--button-color-primary);
+}
+
+button[class].primary:hover,
+button[class].primary-solid:hover {
+  color: var(--color-text-inverse);
+  background: var(--button-color-primary-hover);
+  border-color: var(--button-color-primary-hover);
+}
+
+button[class]:is(.secondary, .subtle) {
+  color: var(--color-text-primary);
+  background: var(--button-color-secondary-bg);
+  border-color: transparent;
+}
+
+button[class]:is(.secondary, .subtle):hover {
+  color: var(--color-text-primary);
+  background: var(--button-color-secondary-bg-hover);
+  border-color: transparent;
+}
+
+/* Secondary is always the neutral filled hierarchy across component pages. */
+button[class].secondary {
+  color: var(--color-text-primary);
+  background: var(--button-color-secondary-bg);
+  border-color: transparent;
+}
+
+button[class].secondary:hover {
+  color: var(--color-text-primary);
+  background: var(--button-color-secondary-bg-hover);
+  border-color: transparent;
+}
+
+button[class].ghost-primary {
+  color: var(--color-action-primary-hover);
+  background: transparent;
+  border-color: color-mix(in srgb, var(--color-action-primary) 50%, transparent);
+}
+
+button[class].ghost-primary:hover {
+  color: var(--color-action-primary-hover);
+  background: color-mix(in srgb, var(--color-action-primary) 10%, transparent);
+  border-color: color-mix(in srgb, var(--color-action-primary) 60%, transparent);
+}
+
+button[class].solid {
+  color: var(--color-text-default);
+  background: var(--color-bg-container);
+  border-color: var(--color-border-default);
+}
+
+button[class].solid:hover {
+  color: var(--color-text-default);
+  background: color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+  border-color: var(--color-border-default);
+}
+
+button[class].dashed {
+  color: var(--color-text-default);
+  background: var(--color-bg-container);
+  border-color: var(--color-border-default);
+  border-style: dashed;
+}
+
+button[class].dashed:hover {
+  color: var(--color-text-default);
+  background: color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+  border-color: var(--color-border-default);
+}
+
+button[class].text {
+  color: var(--color-text-default);
+  background: transparent;
+  border-color: transparent;
+}
+
+button[class].text:hover {
+  color: var(--color-text-primary);
+  background: var(--button-color-text-bg-hover);
+  border-color: transparent;
+}
+
+button[class]:is(.text, .warning-text, .info-text, .danger-text):hover {
+  border-color: transparent;
+}
+
+button[class].danger {
+  color: var(--color-text-inverse);
+  background: var(--color-status-error);
+  border-color: var(--color-status-error);
+}
+
+button[class].danger:hover {
+  color: var(--color-text-inverse);
+  background: var(--color-status-error-hover);
+  border-color: var(--color-status-error-hover);
+}
+
+button[class].danger-secondary {
+  color: var(--color-status-error);
+  background: transparent;
+  border-color: var(--color-status-error);
+}
+
+button[class].danger-secondary:hover {
+  color: var(--color-status-error);
+  background: var(--color-status-error-bg);
+  border-color: var(--color-status-error);
+}
+
+button[class].danger-subtle {
+  color: var(--color-status-error);
+  background: var(--color-status-error-bg);
+  border-color: transparent;
+}
+
+button[class].danger-subtle:hover {
+  color: var(--color-status-error);
+  background: var(--color-status-error-bg-hover);
+  border-color: transparent;
+}
+
+button[class].warning-primary {
+  color: var(--color-text-inverse);
+  background: var(--color-status-warning);
+  border-color: var(--color-status-warning);
+}
+
+button[class].warning-primary:hover {
+  color: var(--color-text-inverse);
+  background: var(--color-status-warning-hover);
+  border-color: var(--color-status-warning-hover);
+}
+
+button[class].warning-secondary {
+  color: var(--color-status-warning);
+  background: transparent;
+  border-color: var(--button-color-testing-border, var(--color-status-warning-hover));
+}
+
+button[class].warning-secondary:hover {
+  color: var(--color-status-warning);
+  background: var(--color-status-warning-bg);
+  border-color: var(--button-color-testing-border, var(--color-status-warning-hover));
+}
+
+button[class].warning-subtle {
+  color: var(--color-status-warning);
+  background: var(--color-status-warning-bg);
+  border-color: transparent;
+}
+
+button[class].warning-subtle:hover {
+  color: var(--color-status-warning);
+  background: var(--color-status-warning-bg-hover);
+  border-color: transparent;
+}
+
+button[class].warning-text {
+  color: var(--color-status-warning);
+  background: transparent;
+  border-color: transparent;
+}
+
+button[class].warning-text:hover {
+  color: var(--color-status-warning);
+  background: var(--color-status-warning-bg);
+  border-color: transparent;
+}
+
+button[class].info-primary {
+  color: var(--color-text-inverse);
+  background: var(--color-status-info);
+  border-color: var(--color-status-info);
+}
+
+button[class].info-primary:hover {
+  color: var(--color-text-inverse);
+  background: var(--color-status-info-hover);
+  border-color: var(--color-status-info-hover);
+}
+
+button[class].info-secondary,
+button[class].solid.info {
+  color: var(--color-status-info);
+  background: transparent;
+  border-color: var(--color-status-info);
+}
+
+button[class].info-secondary:hover,
+button[class].solid.info:hover {
+  color: var(--color-status-info);
+  background: var(--color-status-info-bg);
+  border-color: var(--color-status-info);
+}
+
+button[class].info-subtle {
+  color: var(--color-status-info);
+  background: var(--color-status-info-bg);
+  border-color: transparent;
+}
+
+button[class].info-subtle:hover {
+  color: var(--color-status-info);
+  background: var(--color-status-info-bg-hover);
+  border-color: transparent;
+}
+
+button[class].info-text {
+  color: var(--color-status-info);
+  background: transparent;
+  border-color: transparent;
+}
+
+button[class].info-text:hover {
+  color: var(--color-status-info);
+  background: var(--color-status-info-bg);
+  border-color: transparent;
+}
+
+button[class].small {
+  min-height: var(--button-height-small);
+  padding-inline: 10px;
+  font-size: var(--font-style-caption-size);
+}
+
+button[class].medium {
+  min-height: var(--button-height-medium);
+  padding-inline: 12px;
+}
+
+button[class].large {
+  min-height: var(--button-height-large);
+  padding-inline: 16px;
+  font-size: var(--font-style-body-size);
+}
+
+button[class].icon-only {
+  width: var(--button-icon-only-size);
+  min-width: var(--button-icon-only-size);
+  padding: 0;
+}
+
+button[class].icon-plain {
+  color: var(--color-text-secondary);
+  background: transparent;
+  border-color: transparent;
+}
+
+button[class].icon-plain:hover {
+  color: var(--color-text-primary);
+  background: color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+  border-color: transparent;
+}
+
+button[class]:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+button[class]:disabled,
+button[class][aria-disabled="true"] {
+  cursor: default;
+  opacity: var(--button-disabled-opacity);
+}
+
+button[class]:disabled:hover,
+button[class][aria-disabled="true"]:hover {
+  filter: none;
+}
+
+button[class].primary:disabled:hover,
+button[class].primary-solid:disabled:hover {
+  color: var(--color-text-inverse);
+  background: var(--button-color-primary);
+  border-color: var(--button-color-primary);
+}
+
+button[class]:is(.secondary, .subtle):disabled:hover {
+  color: var(--color-text-primary);
+  background: var(--button-color-secondary-bg);
+  border-color: transparent;
+}
+
+button[class].ghost-primary:disabled:hover {
+  color: var(--color-action-primary-hover);
+  background: transparent;
+  border-color: color-mix(in srgb, var(--color-action-primary) 50%, transparent);
+}
+
+button[class].icon-plain:is(:disabled, [aria-disabled="true"]):hover {
+  color: var(--color-text-secondary);
+  background: transparent;
+  border-color: transparent;
+}
+
+button[class].solid:is(:disabled, [aria-disabled="true"]):hover {
+  color: var(--color-text-default);
+  background: var(--color-bg-container);
+  border-color: var(--color-border-default);
+}
+
+button[class].dashed:is(:disabled, [aria-disabled="true"]):hover {
+  color: var(--color-text-default);
+  background: var(--color-bg-container);
+  border-color: var(--color-border-default);
+  border-style: dashed;
+}
+
+button[class].text:disabled:hover {
+  color: var(--color-text-default);
+  background: transparent;
+  border-color: transparent;
+}
+
+button[class].danger:disabled:hover {
+  color: var(--color-text-inverse);
+  background: var(--color-status-error);
+  border-color: var(--color-status-error);
+}
+
+button[class].danger-secondary:disabled:hover {
+  color: var(--color-status-error);
+  background: transparent;
+  border-color: var(--color-status-error);
+}
+
+button[class].danger-subtle:disabled:hover {
+  color: var(--color-status-error);
+  background: var(--color-status-error-bg);
+  border-color: transparent;
+}
+
+/* Status buttons follow the same hierarchy as the base button variants. */
+button[class]:is(.success-primary, .success-secondary, .success-subtle, .success-text) {
+  --status-button-color: var(--color-action-primary);
+  --status-button-color-hover: var(--color-action-primary-hover);
+  --status-button-text: var(--color-action-primary-hover);
+}
+
+button[class]:is(.warning-primary, .warning-secondary, .warning-subtle, .warning-text) {
+  --status-button-color: var(--color-status-warning);
+  --status-button-color-hover: var(--color-status-warning-hover);
+  --status-button-text: var(--color-status-warning);
+}
+
+button[class]:is(.info-primary, .info-secondary, .info-subtle, .info-text) {
+  --status-button-color: var(--color-status-info);
+  --status-button-color-hover: var(--color-status-info-hover);
+  --status-button-text: var(--color-status-info);
+}
+
+button[class]:is(.danger, .danger-secondary, .danger-subtle, .danger-text) {
+  --status-button-color: var(--color-status-error);
+  --status-button-color-hover: var(--color-status-error-hover);
+  --status-button-text: var(--color-status-error);
+}
+
+button[class]:is(.success-primary, .warning-primary, .info-primary, .danger) {
+  color: var(--color-text-inverse);
+  background: var(--status-button-color);
+  border-color: var(--status-button-color);
+}
+
+button[class]:is(.success-primary, .warning-primary, .info-primary, .danger):hover {
+  color: var(--color-text-inverse);
+  background: var(--status-button-color-hover);
+  border-color: var(--status-button-color-hover);
+}
+
+button[class]:is(.success-secondary, .warning-secondary, .info-secondary, .danger-secondary) {
+  color: var(--status-button-text);
+  background: transparent;
+  border-color: color-mix(in srgb, var(--status-button-color) 50%, transparent);
+}
+
+button[class]:is(.success-secondary, .warning-secondary, .info-secondary, .danger-secondary):hover {
+  color: var(--status-button-text);
+  background: color-mix(in srgb, var(--status-button-color) 10%, transparent);
+  border-color: color-mix(in srgb, var(--status-button-color) 60%, transparent);
+}
+
+button[class]:is(.success-subtle, .warning-subtle, .info-subtle, .danger-subtle) {
+  color: var(--status-button-text);
+  background: color-mix(in srgb, var(--status-button-color) 10%, transparent);
+  border-color: transparent;
+}
+
+button[class]:is(.success-subtle, .warning-subtle, .info-subtle, .danger-subtle):hover {
+  color: var(--status-button-text);
+  background: color-mix(in srgb, var(--status-button-color) 20%, transparent);
+  border-color: transparent;
+}
+
+button[class]:is(.success-text, .warning-text, .info-text, .danger-text) {
+  color: var(--status-button-text);
+  background: transparent;
+  border-color: transparent;
+}
+
+button[class]:is(.success-text, .warning-text, .info-text, .danger-text):hover {
+  color: var(--status-button-text);
+  background: color-mix(in srgb, var(--status-button-color) 10%, transparent);
+  border-color: transparent;
+}
+
+button[class]:is(.success-primary, .warning-primary, .info-primary, .danger):is(:disabled, [aria-disabled="true"]):hover {
+  background: var(--status-button-color);
+  border-color: var(--status-button-color);
+}
+
+button[class]:is(.success-secondary, .warning-secondary, .info-secondary, .danger-secondary):is(:disabled, [aria-disabled="true"]):hover {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--status-button-color) 50%, transparent);
+}
+
+button[class]:is(.success-subtle, .warning-subtle, .info-subtle, .danger-subtle):is(:disabled, [aria-disabled="true"]):hover {
+  background: color-mix(in srgb, var(--status-button-color) 10%, transparent);
+  border-color: transparent;
+}
+
+button[class]:is(.success-text, .warning-text, .info-text, .danger-text):is(:disabled, [aria-disabled="true"]):hover {
+  background: transparent;
+  border-color: transparent;
+}

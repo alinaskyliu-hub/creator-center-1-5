@@ -1,0 +1,49 @@
+/* Translucent form controls; hover keeps the same surface in both themes. */
+body {
+  --account-control-bg: rgb(255 255 255 / 6%);
+  --account-control-border: rgb(255 255 255 / 8%);
+}
+
+html[data-theme="light"] body {
+  --account-control-bg: rgb(255 255 255 / 25%);
+  --account-control-border: rgb(0 0 0 / 8%);
+}
+
+.welcome-with-slogan :is(.login-input, .spec-select),
+.welcome-with-slogan :is(.login-input, .spec-select):is(:hover, .hover) {
+  background: var(--account-control-bg);
+  border-color: var(--account-control-border);
+  -webkit-backdrop-filter: saturate(120%);
+  backdrop-filter: saturate(120%);
+}
+
+.welcome-with-slogan .login-input:is(:hover, .hover) {
+  border-color: var(--input-hover-border-color);
+}
+
+.welcome-with-slogan .spec-select:is(:hover, .hover) {
+  border-color: var(--color-action-primary);
+}
+
+.welcome-with-slogan .login-input:focus,
+.welcome-with-slogan .spec-select:is(.open, .focus, :focus-visible, [aria-expanded="true"]) {
+  border-color: var(--input-focus-color);
+  box-shadow: var(--input-focus-shadow);
+}
+
+.welcome-with-slogan :is(.login-input, .spec-select):is([aria-invalid="true"], .error) {
+  border-color: var(--input-error-color);
+}
+
+.welcome-with-slogan :is(.login-input, .spec-select):is([aria-invalid="true"], .error):is(:focus, :focus-visible, .open, .focus, [aria-expanded="true"]) {
+  box-shadow: var(--input-error-shadow);
+}
+
+.welcome-with-slogan :is(.login-input, .spec-select):is(:disabled, .disabled, [aria-disabled="true"]) {
+  background: var(--account-control-bg);
+  border-color: var(--account-control-border);
+  color: var(--input-disabled-color);
+  opacity: 0.5;
+  box-shadow: none;
+  cursor: not-allowed;
+}

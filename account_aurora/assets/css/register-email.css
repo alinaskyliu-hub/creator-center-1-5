@@ -1,0 +1,41 @@
+/* Reuse account form and design-system Select tokens. */
+.password-hints { color: var(--color-text-tertiary, var(--color-text-secondary)); font-size: 12px; line-height: 1.6; }
+.password-hints p { margin: 0; }
+.password-hints [data-valid="false"] { color: var(--color-status-error); }
+.password-hints [data-valid="true"] { color: var(--color-status-success); }
+.birthday-field { margin: 0; padding: 0; border: 0; min-width: 0; }
+.birthday-field legend { margin-bottom: 7px; padding: 0; }
+.birthday-controls { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 8px; }
+.birthday-select { position: relative; min-width: 0; }
+.birthday-select .spec-select { width: 100%; height: var(--input-height); font-family: inherit; }
+.birthday-select .spec-select[aria-invalid="true"] { border-color: var(--color-status-error); }
+.password-form [hidden] { display: none; }
+
+.birthday-select .select-value.placeholder { color: var(--color-text-disabled); }
+.birthday-dropdown {
+  position: fixed;
+  z-index: 100;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.birthday-dropdown .select-option-list {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--color-border-default) transparent;
+  scrollbar-width: thin;
+}
+
+.birthday-dropdown .select-option-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.birthday-dropdown .select-option-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.birthday-dropdown .select-option-list::-webkit-scrollbar-thumb {
+  border-radius: var(--radius-full);
+  background: var(--color-border-default);
+}

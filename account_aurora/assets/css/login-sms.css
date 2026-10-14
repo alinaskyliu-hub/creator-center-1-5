@@ -1,0 +1,42 @@
+.sms-form { display: grid; gap: 16px; }
+.phone-controls { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.phone-controls > .login-input { flex: 1; width: 0; }
+.dial-code-wrap { position: relative; flex: 0 0 100px; }
+
+.phone-controls .select-control { width: 100%; padding: 0 36px 0 12px; }
+
+/* Match DesignSystem/navigation/dropdown.html: scroll at the menu edge. */
+.dial-code-dropdown {
+  --dropdown-scrollbar-width: 4px;
+  --dropdown-scrollbar-color: var(--color-border-default);
+  --dropdown-scrollbar-hide-delay: 650ms;
+  position: fixed;
+  width: 160px;
+  z-index: 100;
+  max-height: 240px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.dial-code-dropdown .select-option-list { max-height: none; overflow: visible; }
+.dial-code-dropdown.is-scrolling { scrollbar-color: var(--dropdown-scrollbar-color) transparent; scrollbar-width: thin; }
+.dial-code-dropdown::-webkit-scrollbar { width: var(--dropdown-scrollbar-width); }
+.dial-code-dropdown::-webkit-scrollbar-track { background: transparent; }
+.dial-code-dropdown::-webkit-scrollbar-thumb { background: transparent; border-radius: var(--radius-full); }
+.dial-code-dropdown.is-scrolling::-webkit-scrollbar-thumb { background: var(--dropdown-scrollbar-color); }
+
+.sms-form[hidden], .verification-form[hidden] { display: none; }
+.verification-form { display: grid; gap: 16px; }
+.verification-form + .login-legal { margin-top: 24px; }
+.verification-recipient { display: grid; gap: 7px; }
+.verification-description, .verification-phone, .verification-resend { margin: 0; }
+.verification-phone { color: var(--color-text-primary); font-size: var(--font-style-title-3-size); font-weight: var(--font-style-title-3-weight); line-height: 28px; }
+/* Add 8px to the form’s 16px row gap for a total 24px above resend controls. */
+.verification-resend { margin-top: 8px; text-align: center; }
+.resend-seconds { color: var(--color-action-primary); }
+
+.verification-resend > [hidden] { display: none; }
+
+.verification-code-inputs { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.verification-code-inputs .verification-code-digit { box-sizing: border-box; width: 100%; height: auto; aspect-ratio: 1; border-radius: var(--button-radius); padding: 0; text-align: center; font-size: 18px; font-weight: 500; }

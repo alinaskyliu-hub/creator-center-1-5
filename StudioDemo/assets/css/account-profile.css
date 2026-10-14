@@ -1,0 +1,218 @@
+/* Adapted from account/register-profile.html and its welcome/login styles. */
+main .account-field-bio .tab-panel.is-empty {
+  color: var(--color-text-tertiary);
+}
+
+.profile-dialog {
+  width: min(480px, calc(100vw - 48px));
+  max-height: min(90vh, calc(100dvh - 48px));
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-bg-elevated);
+  color: var(--color-text-default);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xlarge);
+  box-shadow: var(--shadow-overlay);
+}
+.profile-dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.profile-dialog::backdrop { background: var(--color-overlay-black-strong); }
+.profile-dialog .modal-header { display: flex; align-items: center; gap: 16px; padding: 24px 52px 12px 20px; }
+.profile-dialog .modal-heading { flex: 1; min-width: 0; }
+.profile-dialog .modal-title { margin: 0; color: var(--color-text-primary); font-size: var(--text-title-3-size); font-weight: var(--text-title-3-weight); line-height: 28px; }
+.profile-dialog .modal-body { min-height: 0; overflow: auto; padding: 0 20px; }
+.profile-dialog .profile-form { display: grid; gap: 20px; }
+.profile-dialog .profile-avatar-field { display: grid; justify-items: center; gap: 10px; padding-top: 8px; }
+.profile-dialog .profile-avatar-button { position: relative; display: grid; place-items: center; width: 96px; height: 96px; padding: 0; border: 0; border-radius: 50%; background: var(--color-bg-container); cursor: pointer; }
+.profile-dialog .profile-avatar-button > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.profile-dialog .profile-counter { color: var(--color-text-tertiary); font-size: var(--text-caption-size); }
+.profile-dialog .login-field { display: grid; gap: 7px; min-width: 0; }
+.profile-dialog .field-label { color: var(--color-text-secondary); font-size: 12.5px; font-weight: 500; line-height: 1.35; }
+.profile-dialog .field-label.required::before { content: '*'; margin-right: 5px; color: var(--color-status-error); }
+.profile-dialog .profile-optional { color: var(--color-text-tertiary); font-weight: 400; }
+.profile-dialog .login-input { width: 100%; min-width: 0; height: 38px; padding: 0 12px; border: 1px solid var(--color-border-default); border-radius: var(--radius-large); background: var(--color-bg-container); color: var(--color-text-default); font: inherit; font-size: var(--text-body-size); outline: none; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+.profile-dialog .login-input:hover, .profile-dialog .login-input:focus { border-color: var(--color-action-primary); }
+.profile-dialog .login-input:focus { box-shadow: var(--shadow-focus); }
+.profile-dialog .login-input[aria-invalid="true"] { border-color: var(--color-status-error); }
+.profile-dialog .profile-bio { min-height: 96px; height: 96px; padding: 10px 12px; resize: vertical; line-height: 1.6; }
+.profile-dialog .profile-counter { text-align: right; }
+.profile-dialog .field-error { margin: 0; color: var(--color-status-error); font-size: var(--text-caption-size); line-height: 1.45; }
+.profile-dialog .spec-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 32px; padding: 0 14px; border: 1px solid transparent; border-radius: var(--radius-default); font: inherit; font-size: var(--text-body-size); cursor: pointer; }
+.profile-dialog .spec-btn.primary { color: var(--color-text-inverse); background: var(--color-action-primary); }
+.profile-dialog .spec-btn.primary:hover { background: var(--color-action-primary-hover); }
+.profile-dialog .spec-btn.secondary { color: var(--color-text-primary); background: color-mix(in srgb, var(--color-text-primary) 10%, transparent); }
+.profile-dialog .spec-btn.secondary:hover { background: color-mix(in srgb, var(--color-text-primary) 20%, transparent); }
+.profile-dialog button:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.profile-dialog .spec-btn:disabled { opacity: 0.6; cursor: default; }
+.profile-dialog [hidden] { display: none !important; }
+
+/* Header and footer match DesignSystem/feedback/modal.html. */
+.profile-dialog .close-btn { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--radius-default); background: transparent; color: var(--color-text-secondary); cursor: pointer; }
+.profile-dialog .close-btn:hover { color: var(--color-text-primary); background: color-mix(in srgb, var(--color-text-primary) 10%, transparent); }
+.profile-dialog .close-btn svg { width: 20px; height: 20px; }
+.profile-dialog .modal-footer { display: flex; justify-content: flex-end; gap: 8px; padding: 20px 20px 24px; }
+.profile-dialog .profile-avatar-overlay { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 50%; background: rgb(0 0 0 / 50%); opacity: 0; transition: opacity 150ms ease; pointer-events: none; }
+.profile-dialog .profile-avatar-overlay .profile-camera-icon { position: static; width: 24px; height: 24px; border-radius: 0; }
+.profile-dialog .profile-avatar-button:is(:hover, :focus-visible) .profile-avatar-overlay { opacity: 1; }
+.profile-dialog .profile-bio-panel { display: grid; gap: 7px; padding-top: 16px; }
+.profile-dialog .profile-bio-tabs { min-width: 0; }
+
+.profile-dialog .field-hint { margin: 0; color: var(--color-text-tertiary); font-size: var(--text-caption-size); line-height: var(--text-caption-line-height); }
+
+/* Validation and inside-textarea counter from DesignSystem/dataentry/input.html. */
+.profile-dialog .modal-title:focus { outline: none; box-shadow: none; }
+.profile-dialog .login-input[aria-invalid="true"] { border-color: var(--color-status-error); }
+.profile-dialog .login-input[aria-invalid="true"]:focus { border-color: var(--color-status-error); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-status-error) 12%, transparent); }
+.profile-dialog .count-textarea-wrap {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  width: 100%;
+  height: 136px;
+  min-height: 104px;
+  resize: vertical;
+  overflow: hidden;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-large);
+  background: var(--color-bg-container);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.profile-dialog .count-textarea-wrap:hover,
+.profile-dialog .count-textarea-wrap:focus-within { border-color: var(--color-action-primary); }
+.profile-dialog .count-textarea-wrap:focus-within { box-shadow: var(--shadow-focus); }
+.profile-dialog .count-textarea-wrap:has([aria-invalid="true"]) { border-color: var(--color-status-error); }
+.profile-dialog .count-textarea-wrap:has([aria-invalid="true"]):focus-within { box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-status-error) 12%, transparent); }
+.profile-dialog .count-textarea-wrap .profile-bio {
+  display: block;
+  height: 100%;
+  min-height: 0;
+  padding: 10px 12px;
+  resize: none;
+  overflow-y: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.profile-dialog .input-count { display: block; padding: 8px 12px 10px; color: var(--color-text-disabled); font-size: var(--text-caption-size); line-height: 1.45; text-align: right; pointer-events: none; }
+.profile-dialog .input-count.over-limit { color: var(--color-status-error); }
+
+.profile-dialog .field-hint .is-invalid { color: var(--color-status-error); }
+
+/* Textarea scrollbar tokens from DesignSystem/dataentry/input.html. */
+.profile-dialog .profile-bio {
+  --input-scrollbar-width: 4px;
+  --input-scrollbar-thumb-color: var(--color-border-strong);
+  --input-scrollbar-track-color: transparent;
+  scrollbar-color: var(--input-scrollbar-thumb-color) var(--input-scrollbar-track-color);
+  scrollbar-width: thin;
+}
+.profile-dialog .profile-bio::-webkit-scrollbar { width: var(--input-scrollbar-width); }
+.profile-dialog .profile-bio::-webkit-scrollbar-track { background: var(--input-scrollbar-track-color); }
+.profile-dialog .profile-bio::-webkit-scrollbar-thumb { background: var(--input-scrollbar-thumb-color); border-radius: var(--radius-full); }
+
+/* Modal entrance and exit share the same 300ms ease-in-out motion. */
+.profile-dialog {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+.profile-dialog.is-visible { opacity: 1; transform: translateY(0); }
+.profile-dialog::backdrop { opacity: 0; transition: opacity 300ms ease-in-out; }
+.profile-dialog.is-visible::backdrop { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .profile-dialog, .profile-dialog::backdrop { transition-duration: 0s; }
+}
+
+.profile-dialog #profile-avatar-preview { width: 96px; height: 96px; }
+
+/* Shared editor tabs also work outside the account settings page. */
+      .profile-dialog .bio-tabs .tabs-bar {
+        position: relative;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .profile-dialog .bio-tabs .tabs-bar::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        background: var(--color-border-subtle);
+        pointer-events: none;
+      }
+
+      .profile-dialog .bio-tabs .tabs-list {
+        --bio-tab-indicator-x: 0px;
+        --bio-tab-indicator-width: 0px;
+        position: relative;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        min-width: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .profile-dialog .bio-tabs .tabs-list::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        width: var(--bio-tab-indicator-width);
+        height: 2px;
+        border-radius: var(--radius-full);
+        background: var(--color-action-primary);
+        transform: translateX(var(--bio-tab-indicator-x));
+        transition: transform 220ms ease, width 220ms ease;
+        pointer-events: none;
+      }
+
+      .profile-dialog .bio-tabs .tabs-list.is-measuring::after {
+        transition: none;
+      }
+
+      .profile-dialog .bio-tabs .tabs-list::-webkit-scrollbar {
+        display: none;
+      }
+
+      .profile-dialog .bio-tabs .tab-item {
+        position: relative;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--color-text-secondary);
+        cursor: pointer;
+        font: inherit;
+        font-size: var(--text-body-size);
+        line-height: var(--text-body-line-height);
+        font-weight: 400;
+        white-space: nowrap;
+      }
+
+      .profile-dialog .bio-tabs .tab-item:hover {
+        color: var(--color-text-default);
+      }
+
+      .profile-dialog .bio-tabs .tab-item[aria-selected="true"] {
+        color: var(--color-text-primary);
+        font-weight: var(--text-body-medium-weight);
+      }
+
+      .profile-dialog .bio-tabs .tab-item:focus-visible {
+        outline: none;
+      }
+
+      .profile-dialog .bio-tabs .tab-item { flex: 0 0 auto; }
+      .profile-dialog .bio-tabs .tab-item:focus-visible { outline: 2px solid var(--color-action-primary); outline-offset: -3px; }
+
+

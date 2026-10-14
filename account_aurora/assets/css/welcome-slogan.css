@@ -1,0 +1,160 @@
+/* Keep responsive layout motion aligned with account-transitions.js. */
+:root {
+  --account-layout-duration: 500ms;
+  --account-layout-easing: ease-in-out;
+}
+
+.welcome-with-slogan {
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 80px 24px;
+  transition: padding var(--account-layout-duration) var(--account-layout-easing);
+}
+
+.welcome-actions {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 100;
+}
+
+.welcome-actions .topbar-actions { gap: 12px; }
+
+.welcome-actions .icon-button {
+  background: rgb(255 255 255 / 12%);
+  color: rgb(255 255 255 / 90%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.welcome-actions .icon-button:hover {
+  background: rgb(255 255 255 / 24%);
+  color: #fff;
+}
+
+html[data-theme="light"] .welcome-actions .icon-button {
+  background: rgb(255 255 255 / 32%);
+  color: #273047;
+}
+
+html[data-theme="light"] .welcome-actions .icon-button:hover {
+  background: rgb(255 255 255 / 52%);
+  color: #10182a;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 64px;
+  width: 100%;
+  margin: auto;
+  flex-shrink: 0;
+  transition: gap var(--account-layout-duration) var(--account-layout-easing);
+}
+
+/* Route host has no layout box, preserving the original slogan-to-card gap. */
+.account-view { display: contents; }
+
+.welcome-with-slogan .welcome-modal.is-route-transitioning,
+.welcome-modal.is-route-transitioning .modal-body { overflow: hidden; }
+
+.welcome-slogan {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 18%);
+}
+
+.welcome-slogan-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  transition: font-size var(--account-layout-duration) var(--account-layout-easing);
+}
+
+.welcome-brand {
+  width: fit-content;
+  margin: 0;
+}
+
+.welcome-brand .brand-logo { height: 28px; }
+
+.welcome-with-slogan .welcome-modal {
+  max-height: none;
+  transition: width var(--account-layout-duration) var(--account-layout-easing);
+  background: rgb(24 27 32 / 58%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+  backdrop-filter: blur(28px) saturate(140%);
+  border-color: transparent;
+  box-shadow: 0 16px 48px rgb(0 0 0 / 20%);
+  --glass-border-top: rgb(255 255 255 / 9%);
+  --glass-border-middle: rgb(255 255 255 / 3%);
+  --glass-border-bottom: rgb(255 255 255 / 1%);
+}
+
+.welcome-with-slogan .welcome-modal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(155deg, var(--glass-border-top), var(--glass-border-middle) 48%, var(--glass-border-bottom));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+html[data-theme="light"] .welcome-with-slogan .welcome-modal {
+  background: rgb(255 255 255 / 60%);
+  box-shadow: 0 16px 48px rgb(24 35 70 / 10%);
+  --glass-border-top: rgb(255 255 255 / 28%);
+  --glass-border-middle: rgb(255 255 255 / 10%);
+  --glass-border-bottom: rgb(255 255 255 / 2%);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .welcome-with-slogan .welcome-modal { background: rgb(24 27 32 / 92%); }
+  html[data-theme="light"] .welcome-with-slogan .welcome-modal { background: rgb(255 255 255 / 94%); }
+}
+
+html[data-theme="light"] .welcome-slogan {
+  color: #10182a;
+  text-shadow: 0 1px 18px rgb(255 255 255 / 20%);
+}
+
+@media (width < 768px) {
+  .welcome-slogan-title { font-size: 36px; }
+  .welcome-content { gap: 48px; }
+}
+
+/* Success dialogs share the same layout while retaining their open/close lifecycle. */
+.welcome-with-slogan .success-modal {
+  position: relative;
+  inset: auto;
+  height: auto;
+  margin: 0;
+}
+.welcome-with-slogan .success-modal[open] { display: block; }
+.welcome-with-slogan .success-modal:not([open]) { display: none; }
+.board-placeholder, .success-overlay { display: none; }
+.welcome-actions .avatar-button .avatar { width: 28px; height: 28px; }
+
+/* Respect the same reduced-motion preference as route transitions. */
+@media (prefers-reduced-motion: reduce) {
+  .welcome-with-slogan,
+  .welcome-content,
+  .welcome-slogan-title,
+  .welcome-with-slogan .welcome-modal { transition: none; }
+}

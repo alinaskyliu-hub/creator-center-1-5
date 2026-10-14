@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studio</title>
+    <script src="assets/js/theme-init.js?v=1"></script>
+    <link rel="stylesheet" href="assets/css/design-system.css?v=4" />
+    <script src="assets/js/account-state.js?v=1"></script>
+    <script src="assets/js/account-navigation.js?v=7"></script>
+    <link rel="stylesheet" href="assets/css/analytics.css?v=4" />
+    <link rel="stylesheet" href="assets/css/studio-shell.css?v=13" />
+  </head>
+  <body class="analytics-page studio-aurora-page">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="IQ Studio">
+        <img class="brand-logo" src="assets/images/logo.svg" alt="iQIYI Studio" />
+      </a>
+      <div class="topbar-actions">
+        <div class="language-switch">
+          <button class="icon-button language-trigger" type="button" aria-label="Switch language" data-i18n-aria-label="switchLanguage" aria-haspopup="listbox" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18" />
+              <path d="M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21" />
+              <path d="M12 3c-2.3 2.5-3.5 5.5-3.5 9s1.2 6.5 3.5 9" />
+            </svg>
+          </button>
+          <span class="language-tooltip" role="tooltip" data-i18n="languageTooltip">Language</span>
+          <div class="language-menu" role="listbox" aria-label="Language" data-i18n-aria-label="languageTooltip" hidden>
+            <button class="language-option" type="button" role="option" data-lang="en" aria-selected="true">English</button>
+            <button class="language-option" type="button" role="option" data-lang="zh" aria-selected="false">中文</button>
+          </div>
+        </div>
+        <div class="theme-switch">
+          <button class="icon-button theme-toggle" type="button" aria-label="Switch to light mode" data-theme-toggle>
+            <svg class="icon theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" data-theme-toggle-icon>
+              <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z" />
+            </svg>
+            <svg class="icon theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+          <span class="theme-tooltip" role="tooltip" data-theme-tooltip>Light mode</span>
+        </div>
+        <div class="account-entry">
+          <button class="avatar-button account-trigger" type="button" aria-label="Account" data-i18n-aria-label="accountTooltip" aria-haspopup="menu" aria-expanded="false">
+            <img class="avatar" src="assets/images/profile-default-avatar.png" alt="" />
+          </button>
+          <span class="account-tooltip" role="tooltip" data-i18n="accountTooltip">Account</span>
+          <div class="account-menu" role="menu" aria-label="Account" data-i18n-aria-label="accountTooltip" hidden>
+            <div class="account-profile" role="none">
+              <span class="account-profile-avatar-wrap" aria-hidden="true">
+                <img class="account-profile-avatar" src="assets/images/profile-default-avatar.png" alt="" />
+                <span class="account-profile-avatar-overlay">
+                  <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+                  </svg>
+                </span>
+              </span>
+              <div class="account-profile-copy">
+                <p class="account-profile-name" data-i18n="userName">Mia Studio</p>
+                <p class="account-profile-id" data-i18n="iqId">IQ ID：1461926038</p>
+              </div>
+            </div>
+            <div class="account-menu-divider" role="separator" aria-hidden="true"></div>
+            <a class="account-option" href="account-setting.html" role="menuitem">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c1.8-5 4.5-7 8-7s6.2 2 8 7" />
+              </svg>
+              <span data-i18n="accountSetting">Account Setting</span>
+            </a>
+            <button class="account-option sign-out" type="button" role="menuitem">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 17l5-5-5-5" />
+                <path d="M15 12H3" />
+                <path d="M21 4v16" />
+              </svg>
+              <span data-i18n="signOut">Sign Out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <aside class="sidebar" aria-label="Primary navigation">
+      <section class="sidebar-profile" aria-label="Account profile">
+        <img class="sidebar-profile-avatar" src="assets/images/profile-default-avatar.png" alt="" />
+        <div class="sidebar-profile-copy"><p class="sidebar-profile-name" data-i18n="userName">Mia Studio</p><p class="sidebar-profile-id" data-i18n="iqId">IQ ID：1461926038</p></div>
+      </section>
+
+      <section class="main-site-account" aria-labelledby="main-site-account-title" data-account-state="unlinked" title="Main-site account: Unlinked" data-i18n-title="mainSiteAccountUnlinked">
+        <div class="main-site-account-header">
+          <h2 class="main-site-account-title" id="main-site-account-title" data-i18n="mainSiteAccount">Main-site account</h2>
+          <span class="main-site-account-status" data-i18n="unlinkedStatus">Unlinked</span>
+        </div>
+        <div class="main-site-account-row">
+          <span class="main-site-account-avatar-wrap"><img class="main-site-account-avatar" src="assets/images/main-site-default-avatar.png" alt="" /></span>
+          <span class="main-site-account-name" data-i18n="linkAccount">Link Account</span>
+          <svg class="icon main-site-account-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+        </div>
+      </section>
+
+      <button class="upload-button" type="button">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 15V3" />
+          <path d="M7 8l5-5 5 5" />
+          <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
+        </svg>
+        <span data-i18n="upload">Upload</span>
+      </button>
+
+      <nav>
+        <ul class="nav-list">
+          
+          <li>
+            <a class="nav-link" href="content.html">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m10 9 6 3-6 3V9Z" />
+              </svg>
+              <span data-i18n="content">Content Management</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="analytics.html" aria-current="page">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 19V5" />
+                <path d="M4 19h16" />
+                <path d="M8 16v-5" />
+                <path d="M12 16V8" />
+                <path d="M16 16v-9" />
+              </svg>
+              <span data-i18n="analytics">Analytics</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M7 11h4" />
+                <path d="M13 11h4" />
+                <path d="M7 15h10" />
+              </svg>
+              <span data-i18n="subtitles">Subtitles</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </aside>
+
+    <main class="shell">
+      <section class="workspace" aria-label="Analytics workspace">
+        <div class="workspace-inner">
+          <div class="title-frame">
+            <h1 data-i18n="analyticsTitle">Channel analytics</h1>
+          </div>
+          <div class="analytics-grid" aria-label="Key metrics" data-i18n-aria-label="keyMetrics">
+            <article class="metric-card">
+              <span class="metric-label" data-i18n="totalViews">Total views</span>
+              <strong class="metric-value">1.28M</strong>
+              <span class="metric-change" data-i18n="viewsChange">Up 12.4% in 28 days</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label" data-i18n="watchTime">Watch time</span>
+              <strong class="metric-value">86.4K h</strong>
+              <span class="metric-change" data-i18n="watchTimeChange">Up 8.7% in 28 days</span>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label" data-i18n="followers">New followers</span>
+              <strong class="metric-value">24.6K</strong>
+              <span class="metric-change" data-i18n="followersChange">Up 6.2% in 28 days</span>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="assets/js/account-state-dom.js?v=1"></script>
+    <script src="assets/js/views/analytics.js?v=2"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+/* Checkbox geometry and states follow DesignSystem/dataentry/checkbox.html. */
+.login-consent {
+  --checkbox-size: 14px;
+  --checkbox-radius: var(--radius-small);
+  --checkbox-check-size: 8px;
+  --checkbox-hotspot-height: 24px;
+  position: relative;
+}
+.consent-checkbox {
+  --checkbox-hover-bg: rgb(255 255 255 / 6%);
+  min-height: var(--checkbox-hotspot-height);
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 3px 8px 3px 4px;
+  border-radius: var(--radius-large);
+  color: var(--checkbox-text-color);
+  cursor: pointer;
+  transition: background-color .15s ease;
+}
+html[data-theme="light"] .consent-checkbox {
+  --checkbox-hover-bg: rgb(0 0 0 / 4%);
+}
+.consent-checkbox:hover { background: var(--checkbox-hover-bg); }
+.consent-checkbox input {
+  appearance: none;
+  position: relative;
+  flex: 0 0 var(--checkbox-size);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  margin: 3px 0 0;
+  border: 1.4px solid var(--checkbox-border-color);
+  border-radius: var(--checkbox-radius);
+  background: var(--color-bg-container);
+  outline: 0;
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.consent-checkbox input::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--checkbox-check-size);
+  height: var(--checkbox-check-size);
+  background: var(--checkbox-check-color);
+  clip-path: polygon(14% 45%, 0 60%, 38% 96%, 100% 18%, 86% 4%, 36% 68%);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.7);
+  transition: opacity .15s ease, transform .15s ease;
+}
+.consent-checkbox input:checked { border-color: var(--checkbox-color-checked); background: var(--checkbox-color-checked); }
+.consent-checkbox input:checked::after { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.consent-checkbox input:focus-visible { box-shadow: var(--checkbox-focus-shadow); }
+.consent-checkbox input[aria-invalid="true"] { border-color: var(--color-status-error); }
+.consent-checkbox input[aria-invalid="true"]:focus-visible { box-shadow: var(--input-error-shadow); }
+.consent-tooltip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 8px);
+  z-index: 3;
+  max-width: 100%;
+  padding: 8px 12px;
+  border-radius: var(--radius-default);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-overlay);
+  font-size: var(--font-style-caption-size);
+  line-height: var(--font-style-caption-line-height);
+}
+.consent-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 8px;
+  border: 5px solid transparent;
+  border-top-color: var(--color-bg-inverse);
+}

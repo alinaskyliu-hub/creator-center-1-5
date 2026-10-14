@@ -1,0 +1,128 @@
+/* Shared aurora shell used by every Studio application page. */
+body.studio-aurora-page {
+  --studio-sidebar-width: 240px;
+  background: transparent;
+}
+
+body.studio-aurora-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      color-mix(in srgb, var(--color-bg-page) 34%, transparent),
+      color-mix(in srgb, var(--color-bg-page) 58%, transparent)
+    ),
+    url("../images/content-aurora-background.png") center top / cover no-repeat;
+  pointer-events: none;
+}
+
+/* One continuous glass plane prevents a blur seam between topbar and sidebar. */
+body.studio-aurora-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: color-mix(in srgb, var(--color-bg-page) 83%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(118%);
+  backdrop-filter: blur(18px) saturate(118%);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 60px,
+    calc(var(--studio-sidebar-width) + var(--radius-xlarge)) 60px,
+    calc(var(--studio-sidebar-width) + var(--radius-xlarge)) calc(60px + var(--radius-xlarge)),
+    var(--studio-sidebar-width) calc(60px + var(--radius-xlarge)),
+    var(--studio-sidebar-width) 100%,
+    0 100%
+  );
+  pointer-events: none;
+}
+
+body.studio-aurora-page .topbar {
+  background: transparent;
+  border-bottom: 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.studio-aurora-page .sidebar {
+  z-index: 90;
+  background: transparent;
+  border-right: 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.studio-aurora-page .shell {
+  --studio-shell-left: 240px;
+  --studio-shell-top: 60px;
+  position: relative;
+  z-index: 81;
+  isolation: isolate;
+}
+
+body.studio-aurora-page .shell::before {
+  content: none;
+}
+
+body.studio-aurora-page .workspace {
+  position: relative;
+  background: var(--color-bg-page);
+  border-top-left-radius: var(--radius-xlarge);
+}
+
+body.studio-aurora-page .shell.is-loading .main-loading {
+  overflow: hidden;
+  border-top-left-radius: var(--radius-xlarge);
+}
+
+body.studio-aurora-page .sidebar .main-site-account {
+  border: 0;
+}
+
+body.studio-aurora-page .sidebar .nav-link:not([aria-current="page"]):hover {
+  background: color-mix(in srgb, var(--color-bg-hover) 60%, transparent);
+}
+
+body.studio-aurora-page .account-menu {
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-elevated);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Sticky content controls must fully occlude rows scrolling below them. */
+body.content-page .content-toolbar-frame,
+body.content-page .content-toolbar-frame::before {
+  background: var(--color-bg-page);
+}
+
+body.content-page .content-toolbar-frame {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+@media (max-width: 1279px) {
+  body.studio-aurora-page {
+    --studio-sidebar-width: 72px;
+  }
+
+  body.studio-aurora-page .shell {
+    --studio-shell-left: 72px;
+  }
+
+}
+
+@media (max-width: 1023px) {
+  body.studio-aurora-page .workspace {
+    min-width: 952px;
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  body.studio-aurora-page::after {
+    background: color-mix(in srgb, var(--color-bg-page) 94%, transparent);
+  }
+}

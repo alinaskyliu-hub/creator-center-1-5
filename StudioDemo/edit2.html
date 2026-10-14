@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Episode 01 details - Studio</title>
+    <script src="assets/js/theme-init.js?v=1"></script>
+    <link rel="stylesheet" href="assets/css/edit2.css?v=3" />
+    <link rel="stylesheet" href="assets/css/design-system.css?v=4" />
+    <link rel="stylesheet" href="assets/css/studio-shell.css?v=13" />
+    <script src="assets/js/account-state.js?v=1"></script>
+    <script src="assets/js/account-navigation.js?v=7"></script>
+  </head>
+  <body class="edit-page studio-aurora-page">
+    <div class="page-message" hidden data-cover-message role="status" aria-live="polite">修改成功</div>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="IQ Studio">
+        <img class="brand-logo" src="assets/images/logo.svg" alt="iQIYI Studio" />
+      </a>
+      <div class="topbar-actions">
+        <div class="language-switch">
+          <button class="icon-button language-trigger" type="button" aria-label="Switch language" data-i18n-aria-label="switchLanguage" aria-haspopup="listbox" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18" />
+              <path d="M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21" />
+              <path d="M12 3c-2.3 2.5-3.5 5.5-3.5 9s1.2 6.5 3.5 9" />
+            </svg>
+          </button>
+          <span class="language-tooltip" role="tooltip" data-i18n="languageTooltip">Language</span>
+          <div class="language-menu" role="listbox" aria-label="Language" data-i18n-aria-label="languageTooltip" hidden>
+            <button class="language-option" type="button" role="option" data-lang="en" aria-selected="true">English</button>
+            <button class="language-option" type="button" role="option" data-lang="zh" aria-selected="false">中文</button>
+          </div>
+        </div>
+        <div class="theme-switch">
+          <button class="icon-button theme-toggle" type="button" aria-label="Switch to light mode" data-theme-toggle>
+            <svg class="icon theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" data-theme-toggle-icon>
+              <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z" />
+            </svg>
+            <svg class="icon theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+          <span class="theme-tooltip" role="tooltip" data-theme-tooltip>Light mode</span>
+        </div>
+        <div class="account-entry">
+          <button class="avatar-button account-trigger" type="button" aria-label="Account" data-i18n-aria-label="accountTooltip" aria-haspopup="menu" aria-expanded="false">
+            <img class="avatar" src="assets/images/profile-default-avatar.png" alt="" />
+          </button>
+          <span class="account-tooltip" role="tooltip" data-i18n="accountTooltip">Account</span>
+          <div class="account-menu" role="menu" aria-label="Account" data-i18n-aria-label="accountTooltip" hidden>
+            <div class="account-profile" role="none">
+              <span class="account-profile-avatar-wrap" aria-hidden="true">
+                <img class="account-profile-avatar" src="assets/images/profile-default-avatar.png" alt="" />
+                <span class="account-profile-avatar-overlay">
+                  <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+                  </svg>
+                </span>
+              </span>
+              <div class="account-profile-copy">
+                <p class="account-profile-name" data-i18n="userName">Mia Studio</p>
+                <p class="account-profile-id" data-i18n="iqId">IQ ID：1461926038</p>
+              </div>
+            </div>
+            <div class="account-menu-divider" role="separator" aria-hidden="true"></div>
+            <a class="account-option" href="account-setting.html" role="menuitem">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c1.8-5 4.5-7 8-7s6.2 2 8 7" />
+              </svg>
+              <span data-i18n="accountSetting">Account Setting</span>
+            </a>
+            <button class="account-option sign-out" type="button" role="menuitem">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 17l5-5-5-5" />
+                <path d="M15 12H3" />
+                <path d="M21 4v16" />
+              </svg>
+              <span data-i18n="signOut">Sign Out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <aside class="sidebar" aria-label="Primary navigation">
+      <section class="sidebar-profile" aria-label="Account profile">
+        <img class="sidebar-profile-avatar" src="assets/images/profile-default-avatar.png" alt="" />
+        <div class="sidebar-profile-copy"><p class="sidebar-profile-name" data-i18n="userName">Mia Studio</p><p class="sidebar-profile-id" data-i18n="iqId">IQ ID：1461926038</p></div>
+      </section>
+
+      <section class="main-site-account" aria-labelledby="main-site-account-title" data-account-state="unlinked" title="Main-site account: Unlinked" data-i18n-title="mainSiteAccountUnlinked">
+        <div class="main-site-account-header">
+          <h2 class="main-site-account-title" id="main-site-account-title" data-i18n="mainSiteAccount">Main-site account</h2>
+          <span class="main-site-account-status" data-i18n="unlinkedStatus">Unlinked</span>
+        </div>
+        <div class="main-site-account-row">
+          <span class="main-site-account-avatar-wrap"><img class="main-site-account-avatar" src="assets/images/main-site-default-avatar.png" alt="" /></span>
+          <span class="main-site-account-name" data-i18n="linkAccount">Link Account</span>
+          <svg class="icon main-site-account-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+        </div>
+      </section>
+
+      <button class="upload-button" type="button">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 15V3" />
+          <path d="M7 8l5-5 5 5" />
+          <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
+        </svg>
+        <span data-i18n="upload">Upload</span>
+      </button>
+
+      <nav>
+        <ul class="nav-list">
+          
+          <li>
+            <a class="nav-link" href="content.html" aria-current="page">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m10 9 6 3-6 3V9Z" />
+              </svg>
+              <span data-i18n="content">Content Management</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="analytics.html">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 19V5" />
+                <path d="M4 19h16" />
+                <path d="M8 16v-5" />
+                <path d="M12 16V8" />
+                <path d="M16 16v-9" />
+              </svg>
+              <span data-i18n="analytics">Analytics</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M7 11h4" />
+                <path d="M13 11h4" />
+                <path d="M7 15h10" />
+              </svg>
+              <span data-i18n="subtitles">Subtitles</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="shell is-loading">
+      <div class="main-loading" role="status" aria-live="polite" aria-label="Loading">
+        <span class="loading-ring" aria-hidden="true"></span>
+      </div>
+      <section class="workspace" aria-label="Workspace">
+        <div class="workspace-inner">
+          <nav class="episode-tabs-frame" aria-label="Episode edit navigation">
+            <ul class="content-menu" role="tablist" data-episode-tabs></ul>
+          </nav>
+
+          <div class="edit-heading-row">
+            <div class="edit-title-group">
+              <h1 class="edit-title" data-edit-page-title>Edit Episode 01 details</h1>
+              <span class="edit-category-tag type-tag comic-drama" data-edit-category>ComicDrama</span>
+            </div>
+            <div class="edit-actions" aria-label="Edit actions">
+              <button class="edit-action" type="button" data-reset-action>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 7v6h6" />
+                  <path d="M21 17a9 9 0 0 0-15-6.7L3 13" />
+                </svg>
+                <span data-reset-action-label>Undo Changes</span>
+              </button>
+              <button class="edit-action" type="button" data-save-action>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z" />
+                  <path d="M17 21v-8H7v8" />
+                  <path d="M7 3v5h8" />
+                </svg>
+                <span data-i18n="save">Save</span>
+              </button>
+              <button class="edit-action primary" type="button" data-publish-action>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+                <span data-publish-action-label>Publish</span>
+              </button>
+              <button class="edit-action icon-only" type="button" aria-label="More actions" data-i18n-aria-label="moreActions">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="5" cy="12" r="1" />
+                  <circle cx="12" cy="12" r="1" />
+                  <circle cx="19" cy="12" r="1" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="edit-layout">
+            <form class="edit-form" aria-label="Edit content details" data-i18n-aria-label="editContentDetails">
+              <section class="form-section" aria-labelledby="basic-info-title">
+                <h2 class="section-title" id="basic-info-title" data-i18n="basicInformation">Basic information</h2>
+                <div class="form-grid">
+                  <div class="form-field full">
+                    <div class="field-label-row">
+                      <label class="field-label required" for="album-title" data-i18n="title">Title</label>
+                      <button class="multilingual-button" type="button" data-translation-open data-translation-field="title">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                          <circle cx="12" cy="12" r="9" />
+                          <path d="M3 12h18" />
+                          <path d="M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21" />
+                          <path d="M12 3c-2.3 2.5-3.5 5.5-3.5 9s1.2 6.5 3.5 9" />
+                        </svg>
+                        <span data-i18n="multilingual">Multilingual</span>
+                      </button>
+                    </div>
+                    <div class="limited-field">
+                      <input class="field-control" id="album-title" name="title" value="Episode 01" aria-describedby="album-title-count album-title-error" data-edit-title-input />
+                      <div class="field-meta">
+                        <span class="char-count" id="album-title-count" data-title-count>0/20</span>
+                      </div>
+                    </div>
+                    <span class="field-error limit-error" id="album-title-error" data-title-error hidden></span>
+                  </div>
+                  <div class="form-field full">
+                    <div class="field-label-row">
+                      <label class="field-label required" for="album-description" data-i18n="description">Description</label>
+                      <button class="multilingual-button" type="button" data-translation-open data-translation-field="description">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                          <circle cx="12" cy="12" r="9" />
+                          <path d="M3 12h18" />
+                          <path d="M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21" />
+                          <path d="M12 3c-2.3 2.5-3.5 5.5-3.5 9s1.2 6.5 3.5 9" />
+                        </svg>
+                        <span data-i18n="multilingual">Multilingual</span>
+                      </button>
+                    </div>
+                    <div class="limited-field">
+                      <textarea class="textarea-control" id="album-description" name="description" aria-describedby="album-description-count album-description-error" data-edit-description-input>A late-night comedy drama preview featuring the turning point before episode six goes live.</textarea>
+                      <div class="field-meta">
+                        <span class="char-count" id="album-description-count" data-description-count>0/300</span>
+                      </div>
+                    </div>
+                    <span class="field-error limit-error" id="album-description-error" data-description-error hidden></span>
+                  </div>
+                  <div class="form-field full">
+                    <div class="field-label-row">
+                      <span class="field-label required" data-i18n="cover">Cover</span>
+                      <button class="multilingual-button" type="button" data-cover-translation-open>
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                          <circle cx="12" cy="12" r="9" />
+                          <path d="M3 12h18" />
+                          <path d="M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21" />
+                          <path d="M12 3c-2.3 2.5-3.5 5.5-3.5 9s1.2 6.5 3.5 9" />
+                        </svg>
+                        <span data-i18n="multilingual">Multilingual</span>
+                      </button>
+                    </div>
+                    <div class="cover-uploader" data-cover-uploader>
+                      <div class="cover-preview-grid" aria-label="Cover previews">
+                        <div class="cover-slot" data-cover-slot>
+                          <div class="cover-preview landscape" aria-label="16:9 landscape cover preview">
+                            <span class="cover-art" aria-hidden="true">
+                              <span class="cover-title-art" data-cover-title-art></span>
+                            </span>
+                            <div class="cover-overlay" aria-label="16:9 cover actions">
+                              <button class="cover-hover-action" type="button" data-cover-upload data-i18n="reupload">Re-upload</button>
+                              <button class="cover-hover-action" type="button" data-cover-title-toggle data-i18n="titleWrap">Title wrap</button>
+                            </div>
+                            <input class="cover-file-input" type="file" accept="image/*" data-cover-file />
+                          </div>
+                          <span class="cover-label" data-i18n="coverLandscape">16:9 Landscape</span>
+                        </div>
+                        <div class="cover-slot" data-cover-slot>
+                          <div class="cover-preview portrait" aria-label="3:4 portrait cover preview">
+                            <span class="cover-art" aria-hidden="true">
+                              <span class="cover-title-art" data-cover-title-art></span>
+                            </span>
+                            <div class="cover-overlay" aria-label="3:4 cover actions">
+                              <button class="cover-hover-action" type="button" data-cover-upload data-i18n="reupload">Re-upload</button>
+                              <button class="cover-hover-action" type="button" data-cover-title-toggle data-i18n="titleWrap">Title wrap</button>
+                            </div>
+                            <input class="cover-file-input" type="file" accept="image/*" data-cover-file />
+                          </div>
+                          <span class="cover-label" data-i18n="coverPortrait">3:4 Portrait</span>
+                        </div>
+                        <div class="cover-slot" data-cover-slot>
+                          <div class="cover-preview square" aria-label="1:1 square cover preview">
+                            <span class="cover-art" aria-hidden="true">
+                              <span class="cover-title-art" data-cover-title-art></span>
+                            </span>
+                            <div class="cover-overlay" aria-label="1:1 cover actions">
+                              <button class="cover-hover-action" type="button" data-cover-upload data-i18n="reupload">Re-upload</button>
+                              <button class="cover-hover-action" type="button" data-cover-title-toggle data-i18n="titleWrap">Title wrap</button>
+                            </div>
+                            <input class="cover-file-input" type="file" accept="image/*" data-cover-file />
+                          </div>
+                          <span class="cover-label" data-i18n="coverSquare">1:1 Square</span>
+                        </div>
+                      </div>
+                      <div class="cover-title-panel" hidden data-cover-title-panel>
+                        <div class="cover-title-panel-head">
+                          <span class="cover-title-panel-title" data-cover-title-panel-title>Title wrap</span>
+                        </div>
+                        <textarea class="cover-title-textarea" rows="3" spellcheck="false" data-cover-title-panel-input></textarea>
+                        <div class="cover-title-panel-actions">
+                          <div class="cover-title-panel-actions-left">
+                            <button class="edit-action" type="button" data-cover-title-cancel data-i18n="cancel">Cancel</button>
+                            <button class="edit-action" type="button" data-cover-title-restore data-i18n="restoreDefault">Restore default</button>
+                          </div>
+                          <div class="cover-title-panel-actions-right">
+                            <button class="edit-action" type="button" data-cover-title-apply-all data-i18n="applyAll">Apply to all</button>
+                            <button class="edit-action primary" type="button" data-cover-title-apply-current data-i18n="applyCurrent">Apply current</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="field-error limit-error" id="album-cover-error" data-cover-error hidden></span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="form-section" aria-labelledby="subtitles-title">
+                <div class="section-title-row">
+                  <h2 class="section-title" id="subtitles-title" data-i18n="subtitles">Subtitles</h2>
+                  <div class="subtitle-title-actions">
+                    <button class="edit-action" type="button" data-subtitle-add-open>
+                      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 5v14" />
+                        <path d="M5 12h14" />
+                      </svg>
+                      <span data-i18n="addSubtitle">Add subtitle</span>
+                    </button>
+                    <label class="edit-action primary upload-file-button">
+                      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 16V4" />
+                        <path d="m7 9 5-5 5 5" />
+                        <path d="M5 20h14" />
+                      </svg>
+                      <span data-i18n="uploadSubtitle">Upload subtitle</span>
+                      <input class="upload-trigger-input" type="file" accept=".srt,.vtt,.ass,.ssa,text/vtt,application/x-subrip" multiple data-subtitle-upload-input />
+                    </label>
+                  </div>
+                </div>
+                <div class="form-grid">
+                  <div class="form-field full">
+                    <div class="subtitle-upload">
+                      <ul class="upload-file-list" aria-label="Uploaded subtitle list" data-i18n-aria-label="uploadedSubtitleList" data-subtitle-upload-list></ul>
+                      <ul class="subtitle-card-list" aria-label="Generated subtitles" data-i18n-aria-label="generatedSubtitles">
+                        <li class="subtitle-card">
+                          <span class="subtitle-card-copy">
+                            <span class="subtitle-card-title" data-i18n="englishSubtitle">English subtitles</span>
+                            <span class="subtitle-card-meta" data-i18n="platformGenerated">Platform generated</span>
+                          </span>
+                          <button class="edit-action subtitle-card-action" type="button" data-subtitle-edit-open data-subtitle-edit-language="en" data-i18n="edit">Edit</button>
+                        </li>
+                        <li class="subtitle-card">
+                          <span class="subtitle-card-copy">
+                            <span class="subtitle-card-title" data-i18n="chineseSubtitle">Chinese subtitles</span>
+                            <span class="subtitle-card-meta" data-i18n="platformGenerated">Platform generated</span>
+                          </span>
+                          <button class="edit-action subtitle-card-action" type="button" data-subtitle-edit-open data-subtitle-edit-language="zh" data-i18n="edit">Edit</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="form-section" aria-labelledby="distribution-title" hidden>
+                <h2 class="section-title" id="distribution-title" data-i18n="distributionSettings">Distribution settings</h2>
+                <div class="form-grid distribution-grid">
+                  <div class="form-field">
+                    <span class="field-label required" data-i18n="freePaidStatusLabel">Free/Paid status</span>
+                    <div class="iqb-radio-group" role="radiogroup" aria-label="Free/Paid status" data-i18n-aria-label="freePaidStatusLabel" aria-describedby="album-paid-status-error" data-paid-status-group>
+                      <label class="iqb-radio">
+                        <input class="iqb-radio-input" type="radio" name="paidStatus" value="Free" checked />
+                        <span class="iqb-radio-mark" aria-hidden="true"></span>
+                        <span data-i18n="free">Free</span>
+                      </label>
+                      <label class="iqb-radio">
+                        <input class="iqb-radio-input" type="radio" name="paidStatus" value="Paid" />
+                        <span class="iqb-radio-mark" aria-hidden="true"></span>
+                        <span data-i18n="paid">Paid</span>
+                      </label>
+                    </div>
+                    <span class="field-error limit-error" id="album-paid-status-error" data-paid-status-error hidden></span>
+                  </div>
+                  <div class="form-field">
+                    <span class="field-label required" data-i18n="ratingInformation">Rating information</span>
+                    <span class="iqb-select" data-rating-select>
+                      <input type="hidden" name="rating" value="13+" data-rating-value />
+                      <button class="iqb-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-describedby="album-rating-error" data-rating-trigger>
+                        <span data-rating-label>13+</span>
+                        <svg class="iqb-select-icon icon" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </button>
+                      <div class="iqb-select-menu" role="listbox" aria-label="Rating information" data-i18n-aria-label="ratingInformation" hidden data-rating-menu>
+                        <button class="iqb-select-option" type="button" role="option" aria-selected="false" data-rating-option="All ages"><span data-i18n="allAges">All ages</span><svg class="iqb-select-check icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" /></svg></button>
+                        <button class="iqb-select-option" type="button" role="option" aria-selected="true" data-rating-option="13+"><span>13+</span><svg class="iqb-select-check icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" /></svg></button>
+                        <button class="iqb-select-option" type="button" role="option" aria-selected="false" data-rating-option="16+"><span>16+</span><svg class="iqb-select-check icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" /></svg></button>
+                        <button class="iqb-select-option" type="button" role="option" aria-selected="false" data-rating-option="18+"><span>18+</span><svg class="iqb-select-check icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" /></svg></button>
+                      </div>
+                    </span>
+                    <span class="field-error limit-error" id="album-rating-error" data-rating-error hidden></span>
+                  </div>
+                  <div class="form-field full">
+                    <div class="field-label-row">
+                      <span class="field-label required" data-i18n="launchRegions">Launch regions</span>
+                      <label class="iqb-checkbox">
+                        <input class="iqb-checkbox-input" type="checkbox" checked data-region-all />
+                        <span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                        <span data-i18n="selectAll">Select all</span>
+                      </label>
+                    </div>
+                    <div class="tag-checkbox-grid" aria-label="Launch regions" data-i18n-aria-label="launchRegions" aria-describedby="album-regions-error" data-regions-group>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Mainland China" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Mainland China</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Hong Kong" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Hong Kong</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Macao" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Macao</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Taiwan" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Taiwan</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Southeast Asia" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Southeast Asia</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Singapore" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Singapore</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Malaysia" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Malaysia</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Thailand" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Thailand</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Indonesia" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Indonesia</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Philippines" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Philippines</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Vietnam" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Vietnam</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Japan" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Japan</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="South Korea" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>South Korea</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="United States" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>United States</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Global" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>Global</span></label>
+                    </div>
+                    <span class="field-error limit-error" id="album-regions-error" data-regions-error hidden></span>
+                  </div>
+                </div>
+              </section>
+            </form>
+
+            <aside class="preview-column" aria-label="Content preview" data-i18n-aria-label="contentPreview">
+              <section class="preview-card" data-edit-preview-card>
+                <div class="video-player">
+                  <button class="play-button" type="button" aria-label="Play preview" data-i18n-aria-label="playPreview">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="m8 5 11 7-11 7V5Z" />
+                    </svg>
+                  </button>
+                  <div class="player-meta">
+                    <span data-edit-format>1080p</span>
+                    <span data-edit-player-duration>03:18</span>
+                  </div>
+                </div>
+                <div class="preview-details">
+                  <h2 class="preview-title" data-edit-preview-title>Moonlit Bistro</h2>
+                  <p class="preview-id preview-link-row">
+                    <a href="#" data-edit-video-link>https://www.iq.com/play/VID-2408-0187?episode=1</a>
+                    <button class="preview-copy-button" type="button" aria-label="Copy video link" data-i18n-aria-label="copyVideoLink" data-copy-video-link>
+                      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="9" y="9" width="11" height="11" rx="2" />
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                      </svg>
+                    </button>
+                    <span class="copy-tooltip" hidden data-copy-tooltip role="status" aria-live="polite"></span>
+                  </p>
+                  <div class="meta-list">
+                    <div class="meta-row"><span data-i18n="fileName">File Name</span><strong data-edit-file-name>episode_01.mp4</strong></div>
+                    <div class="meta-row"><span data-i18n="publication">Publication</span><strong class="status-pill draft" data-edit-publication><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><path d="M14 3v6h6" /><path d="M8 15h4" /></svg><span>Draft</span></strong></div>
+                    <div class="meta-row"><span data-i18n="updated">Updated</span><strong data-edit-updated>Yesterday 18:40</strong></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="episode-card" hidden data-edit-episode-card>
+                <h2 class="episode-card-title" data-i18n="episodeInformation">Episode information</h2>
+                <div class="episode-list" data-edit-episode-list>
+                  <div class="episode-item"><span>Episode 1</span><span class="episode-status">Ready</span></div>
+                  <div class="episode-item"><span>Episode 2</span><span class="episode-status">Ready</span></div>
+                  <div class="episode-item"><span>Episode 3</span><span class="episode-status">Ready</span></div>
+                  <div class="episode-item"><span>Episode 4</span><span class="episode-status">Ready</span></div>
+                  <div class="episode-item"><span>Episode 5</span><span class="episode-status">Ready</span></div>
+                  <div class="episode-item"><span>Episode 6</span><span class="episode-status">Draft</span></div>
+                </div>
+              </section>
+            </aside>
+          </div>
+
+          <div class="content-toolbar-frame">
+            <nav aria-label="Content menu" data-i18n-aria-label="contentMenuAria">
+              <ul class="content-menu" role="tablist">
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-all" data-content-tab="all" data-i18n="all" aria-selected="true" aria-controls="content-panel">All</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-short" data-content-tab="short" data-i18n="short" aria-selected="false" aria-controls="content-panel">Short</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-comic-drama" data-content-tab="comic-drama" data-i18n="comicDrama" aria-selected="false" aria-controls="content-panel">ComicDrama</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-movie" data-content-tab="movie" data-i18n="movie" aria-selected="false" aria-controls="content-panel">Movie</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-drama" data-content-tab="drama" data-i18n="drama" aria-selected="false" aria-controls="content-panel">Drama</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-anime" data-content-tab="anime" data-i18n="anime" aria-selected="false" aria-controls="content-panel">Anime</button></li>
+              </ul>
+            </nav>
+            <div class="content-filters" aria-label="Content filters" data-i18n-aria-label="contentFiltersAria">
+              <div class="filter-group">
+                <button class="filter-control" type="button" aria-haspopup="listbox" aria-expanded="false" data-filter-trigger data-filter-field="freePaidStatus">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16" />
+                    <path d="M7 12h10" />
+                    <path d="M10 17h4" />
+                  </svg>
+                  <span class="filter-label" data-i18n="freePaid">Free/Paid</span>
+                  <span class="filter-value" data-filter-value>All</span>
+                </button>
+                <div class="filter-menu" role="listbox" aria-label="Free/Paid" data-i18n-aria-label="freePaid" hidden>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="freePaidStatus" data-filter-value="" data-i18n="all" aria-selected="true">All</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="freePaidStatus" data-filter-value="Free" data-i18n="free" aria-selected="false">Free</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="freePaidStatus" data-filter-value="Paid" data-i18n="paid" aria-selected="false">Paid</button>
+                </div>
+              </div>
+              <div class="filter-group">
+                <button class="filter-control" type="button" aria-haspopup="listbox" aria-expanded="false" data-filter-trigger data-filter-field="publicationStatus">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16" />
+                    <path d="M7 12h10" />
+                    <path d="M10 17h4" />
+                  </svg>
+                  <span class="filter-label" data-i18n="publication">Publication</span>
+                  <span class="filter-value" data-filter-value>All</span>
+                </button>
+                <div class="filter-menu" role="listbox" aria-label="Publication" data-i18n-aria-label="publication" hidden>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="publicationStatus" data-filter-value="" data-i18n="all" aria-selected="true">All</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="publicationStatus" data-filter-value="Online" data-i18n="online" aria-selected="false">Online</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="publicationStatus" data-filter-value="Offline" data-i18n="offline" aria-selected="false">Offline</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="publicationStatus" data-filter-value="Draft" data-i18n="draft" aria-selected="false">Draft</button>
+                </div>
+              </div>
+              <div class="search-control">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m16 16 5 5" />
+                </svg>
+                <input class="search-input" type="search" aria-label="Search title or Content ID" placeholder="Search title or Content ID" data-i18n-aria-label="searchPlaceholder" data-i18n-placeholder="searchPlaceholder" data-search-input />
+                <button class="search-clear" type="button" aria-label="Clear search" data-i18n-aria-label="clearSearch" data-search-clear hidden>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 7l10 10" />
+                    <path d="M17 7L7 17" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="content-view">
+            <section class="content-panel video-list-card" id="content-panel" role="tabpanel" aria-labelledby="tab-all">
+              <div class="video-list-header-scroll" data-video-list-header-scroll>
+                <div class="video-list-header" role="row">
+                  <span data-i18n="video">Video</span>
+                  <span data-i18n="freePaidStatus">Free/Paid Status</span>
+                  <span data-i18n="publicationStatus">Publication Status</span>
+                  <span data-i18n="updated">Updated</span>
+                  <span data-i18n="action">Action</span>
+                </div>
+              </div>
+              <div class="video-list-scroll" data-video-list-scroll>
+                <div class="video-list-table">
+                  <div class="video-list-body" data-video-list></div>
+                </div>
+              </div>
+            </section>
+            <div class="pagination" aria-label="Pagination" data-i18n-aria-label="pagination">
+              <span class="pagination-range" data-pagination-range>共 20 条</span>
+              <div class="pagination-controls">
+                <button class="pagination-button" type="button" aria-label="Previous page" data-i18n-aria-label="previousPage" data-page-prev>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                </button>
+                <span class="pagination-pages" data-page-numbers></span>
+                <button class="pagination-button" type="button" aria-label="Next page" data-i18n-aria-label="nextPage" data-page-next>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+              <span class="page-size-select" data-page-size>
+                <button class="page-size-trigger" type="button" aria-label="Rows per page" data-i18n-aria-label="rowsPerPage" aria-expanded="false" data-page-size-trigger data-page-size-value="10">
+                  <span data-page-size-label>10 条/页</span>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <span class="page-size-menu" data-page-size-menu hidden>
+                  <button class="page-size-option selected" type="button" data-page-size-option="10">10 条/页</button>
+                  <button class="page-size-option" type="button" data-page-size-option="20">20 条/页</button>
+                  <button class="page-size-option" type="button" data-page-size-option="50">50 条/页</button>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="modal-backdrop" data-translation-modal hidden>
+      <section class="translation-modal" role="dialog" aria-modal="true" aria-labelledby="translation-modal-title">
+        <header class="modal-header">
+          <div>
+            <h2 class="modal-title" id="translation-modal-title" data-translation-modal-title>Multilingual editing</h2>
+            <p class="modal-subtitle" data-i18n="generatedContentEditable">Platform generated content can be edited again</p>
+          </div>
+          <button class="modal-close" type="button" aria-label="Close" data-i18n-aria-label="close" data-translation-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 7l10 10" />
+              <path d="M17 7L7 17" />
+            </svg>
+          </button>
+        </header>
+        <div class="translation-list" data-translation-list></div>
+      </section>
+    </div>
+    <div class="modal-backdrop" data-cover-translation-modal hidden>
+      <section class="translation-modal" role="dialog" aria-modal="true" aria-labelledby="cover-translation-modal-title">
+        <header class="modal-header">
+          <div>
+            <h2 class="modal-title" id="cover-translation-modal-title" data-i18n="posterMultilingualTitle">Poster multilingual editing</h2>
+            <p class="modal-subtitle" data-i18n="posterMultilingualSubtitle">Adjust poster images for each language</p>
+          </div>
+          <button class="modal-close" type="button" aria-label="Close" data-i18n-aria-label="close" data-cover-translation-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 7l10 10" />
+              <path d="M17 7L7 17" />
+            </svg>
+          </button>
+        </header>
+        <div class="poster-list" data-cover-translation-list></div>
+      </section>
+    </div>
+    <div class="modal-backdrop" data-subtitle-add-modal hidden>
+      <section class="translation-modal" role="dialog" aria-modal="true" aria-labelledby="subtitle-add-modal-title">
+        <header class="modal-header">
+          <div>
+            <h2 class="modal-title" id="subtitle-add-modal-title" data-i18n="subtitleAddModalTitle">Add subtitle</h2>
+          </div>
+          <button class="modal-close" type="button" aria-label="Close" data-i18n-aria-label="close" data-subtitle-add-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 7l10 10" />
+              <path d="M17 7L7 17" />
+            </svg>
+          </button>
+        </header>
+        <div class="subtitle-language-list" data-subtitle-language-list></div>
+      </section>
+    </div>
+    <div class="modal-backdrop" data-subtitle-edit-modal hidden>
+      <section class="translation-modal subtitle-edit-modal" role="dialog" aria-modal="true" aria-labelledby="subtitle-edit-modal-title">
+        <header class="modal-header">
+          <div>
+            <h2 class="modal-title" id="subtitle-edit-modal-title" data-i18n="subtitleEditModalTitle">Edit subtitle model</h2>
+            <p class="modal-subtitle" data-subtitle-edit-modal-language>English subtitles</p>
+          </div>
+          <button class="modal-close" type="button" aria-label="Close" data-i18n-aria-label="close" data-subtitle-edit-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 7l10 10" />
+              <path d="M17 7L7 17" />
+            </svg>
+          </button>
+        </header>
+        <div class="subtitle-edit-body">
+          <section class="subtitle-player-panel" aria-label="Video preview" data-i18n-aria-label="videoPreview">
+            <div class="subtitle-video-frame">
+              <video class="subtitle-video" controls preload="auto" poster="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.jpg" data-subtitle-video>
+                <source src="https://samplelib.com/preview/mp4/sample-20s.mp4" type="video/mp4" />
+              </video>
+              <div class="subtitle-preview-caption" data-subtitle-preview-caption></div>
+              <div class="subtitle-video-error" hidden data-subtitle-video-error>Video failed to load. Please check the network and try again</div>
+            </div>
+            <p class="subtitle-video-caption">00:00:00 - 00:00:20</p>
+          </section>
+          <section class="subtitle-editor-panel" aria-label="Subtitle editor" data-i18n-aria-label="subtitleEditor">
+            <ul class="subtitle-editor-list" data-subtitle-editor-list></ul>
+          </section>
+        </div>
+      </section>
+    </div>
+    <script src="assets/js/account-state-dom.js?v=1"></script>
+    <script src="assets/js/views/edit2.js?v=2"></script>
+    <script src="assets/js/views/edit2-init.js?v=2"></script>
+    <script src="assets/js/episode-loading.js?v=2"></script>
+  </body>
+</html>

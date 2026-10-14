@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>编辑专辑详情 - 创作者工作台</title>
+    <script src="assets/js/theme-init.js?v=41"></script>
+    <link rel="stylesheet" href="assets/css/design-system.css?v=3" />
+    <script src="assets/js/account-state.js?v=41"></script>
+    <script src="assets/js/account-navigation.js?v=41"></script>
+    <link rel="stylesheet" href="assets/css/edit.css?v=38" />
+    <link rel="stylesheet" href="assets/css/studio-shell.css?v=13" />
+  </head>
+  <body class="edit-page studio-aurora-page" data-edit-section="details">
+    <div class="message-portal" aria-live="polite" aria-atomic="false">
+      <div class="feedback-message success" hidden data-cover-message role="status">
+        <span class="message-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12.5l2.5 2.5L16.5 9" /></svg></span>
+        <span data-cover-message-text>修改成功</span>
+      </div>
+    </div>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="爱奇艺创作者工作台">
+        <img class="brand-logo" src="assets/images/logo-zh.svg" alt="爱奇艺创作者工作台" />
+      </a>
+      <div class="topbar-actions">
+        <div class="theme-switch">
+          <button class="icon-button theme-toggle" type="button" aria-label="Switch to light mode" data-theme-toggle>
+            <svg class="icon theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" data-theme-toggle-icon>
+              <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z" />
+            </svg>
+            <svg class="icon theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+          <span class="theme-tooltip" role="tooltip" data-theme-tooltip>浅色模式</span>
+        </div>
+        <div class="account-entry">
+          <button class="avatar-button account-trigger" type="button" aria-label="账号" data-i18n-aria-label="accountTooltip" aria-haspopup="menu" aria-expanded="false">
+            <img class="avatar" src="assets/images/profile-default-avatar.png" alt="" />
+          </button>
+          <span class="account-tooltip" role="tooltip" data-i18n="accountTooltip">账号</span>
+          <div class="account-menu" role="menu" aria-label="账号" data-i18n-aria-label="accountTooltip" hidden>
+            <div class="account-profile" role="none">
+              <span class="account-profile-avatar-wrap" aria-hidden="true">
+                <img class="account-profile-avatar" src="assets/images/profile-default-avatar.png" alt="" />
+                <span class="account-profile-avatar-overlay">
+                  <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14 21 3" />
+                    <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+                  </svg>
+                </span>
+              </span>
+              <div class="account-profile-copy">
+                <p class="account-profile-name" data-i18n="userName">米娅工作室</p>
+                <p class="account-profile-id" data-i18n="iqId">爱奇艺账号：1461926038</p>
+              </div>
+            </div>
+            <div class="account-menu-divider" role="separator" aria-hidden="true"></div>
+            <a class="account-option" href="account-setting.html" role="menuitem">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c1.8-5 4.5-7 8-7s6.2 2 8 7" />
+              </svg>
+              <span data-i18n="accountSetting">账号设置</span>
+            </a>
+            <button class="account-option sign-out" type="button" role="menuitem">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 17l5-5-5-5" />
+                <path d="M15 12H3" />
+                <path d="M21 4v16" />
+              </svg>
+              <span data-i18n="signOut">退出登录</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <aside class="sidebar" aria-label="Primary navigation">
+      <section class="sidebar-profile" aria-label="Account profile">
+        <img class="sidebar-profile-avatar" src="assets/images/profile-default-avatar.png" alt="" />
+        <div class="sidebar-profile-copy"><p class="sidebar-profile-name" data-i18n="userName">米娅工作室</p><p class="sidebar-profile-id" data-i18n="iqId">爱奇艺账号：1461926038</p></div>
+      </section>
+
+      <section class="main-site-account" aria-labelledby="main-site-account-title" data-account-state="unlinked" title="主站账户：未绑定" data-i18n-title="mainSiteAccountUnlinked">
+        <div class="main-site-account-header">
+          <h2 class="main-site-account-title" id="main-site-account-title" data-i18n="mainSiteAccount">主站账户</h2>
+          <span class="main-site-account-status" data-i18n="unlinkedStatus">未绑定</span>
+        </div>
+        <div class="main-site-account-row">
+          <span class="main-site-account-avatar-wrap"><img class="main-site-account-avatar" src="assets/images/main-site-default-avatar.png" alt="" /></span>
+          <span class="main-site-account-name" data-i18n="linkAccount">去绑定</span>
+          <svg class="icon main-site-account-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+        </div>
+      </section>
+      <button class="upload-button" type="button">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3" /><path d="M7 8l5-5 5 5" /><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" /></svg>
+        <span data-i18n="upload">上传</span>
+      </button>
+      <nav>
+        <ul class="nav-list">
+          
+          <li><a class="nav-link" href="content.html" aria-current="page"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m10 9 6 3-6 3V9Z" /></svg><span data-i18n="content">内容管理</span></a></li>
+          <li><a class="nav-link" href="analytics.html"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5" /><path d="M4 19h16" /><path d="M8 16v-5" /><path d="M12 16V8" /><path d="M16 16v-9" /></svg><span data-i18n="analytics">数据分析</span></a></li>
+          <li><a class="nav-link" href="#"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M7 11h4" /><path d="M13 11h4" /><path d="M7 15h10" /></svg><span data-i18n="subtitles">字幕</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="shell is-loading">
+      <div class="main-loading" role="status" aria-live="polite" aria-label="Loading">
+        <div class="main-loading-content">
+          <span class="loading-ring" aria-hidden="true"></span>
+          <p class="main-loading-tip" data-publish-loading-tip data-i18n="publishingSubmission" hidden>提交发布中</p>
+        </div>
+      </div>
+      <section class="workspace" aria-label="Workspace">
+        <div class="workspace-inner">
+          <div class="edit-sticky-header">
+            <a class="edit-backbutton" href="content.html">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5" /><path d="m12 19-7-7 7-7" /></svg>
+              <span data-i18n="backToContentManagement">返回内容管理</span>
+            </a>
+            <div class="edit-heading-row">
+              <div class="edit-title-group">
+                <div class="edit-title-tabs" role="tablist" aria-label="编辑分区" data-i18n-aria-label="editSections">
+                  <button class="edit-title-tab" type="button" role="tab" id="edit-details-tab" aria-selected="true" aria-controls="edit-details-panel" tabindex="0" data-edit-section-tab="details"><span data-i18n="editAlbumDetails">专辑详情</span></button>
+                  <button class="edit-title-tab" type="button" role="tab" id="edit-episodes-tab" aria-selected="false" aria-controls="edit-episodes-panel" tabindex="-1" data-edit-section-tab="episodes"><span data-i18n="viewEpisodes">剧集详情</span></button>
+                </div>
+              </div>
+              <div class="edit-actions" aria-label="Edit actions">
+                <button class="edit-action primary" type="button" data-publish-action>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                  <span data-publish-action-label>重新发布</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="publishing-warning" data-publishing-warning role="alert" hidden>
+            <span class="publishing-warning-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7v7" /><path d="M12 17h.01" /></svg></span>
+            <strong class="publishing-warning-title" data-i18n="publishingEditDisabled">当前内容正在发布中，暂不支持编辑</strong>
+          </div>
+          <div class="publishing-error" data-publishing-error role="alert" hidden>
+            <span class="publishing-error-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7v7" /><path d="M12 17h.01" /></svg></span>
+            <strong class="publishing-error-title" data-i18n="reviewRejectedMessage">当前内容审核未通过：1. 封面与标题不一致（简体中文、英文）；2. 1-3集字幕音话不同步（英语/泰语/马来语）。</strong>
+          </div>
+
+          <div class="edit-layout">
+            <form class="edit-form" id="edit-details-panel" role="tabpanel" aria-labelledby="edit-details-tab" aria-label="编辑内容详情" data-i18n-aria-label="editContentDetails">
+              <section class="form-section" aria-labelledby="basic-info-title">
+                <div class="section-heading-row">
+                  <h2 class="section-title" id="basic-info-title" data-i18n="basicInformation">基本信息</h2>
+                  <div class="filter-group content-language-filter" data-content-language-filter>
+                    <button class="filter-control has-value" type="button" aria-haspopup="listbox" aria-expanded="false" data-content-language-trigger>
+                      <span class="filter-label-frame">
+                        <svg class="icon filter-recognition-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect x="3" y="3" width="18" height="18" rx="3" />
+                          <path d="m7.5 17 3.3-10h2.4l3.3 10M9 13h6" />
+                        </svg>
+                      </span>
+                      <span class="filter-value" data-content-language-value>简体中文</span>
+                      <svg class="icon filter-expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div class="filter-menu" role="listbox" aria-label="Content language" hidden data-content-language-menu>
+                      <button class="filter-option" type="button" role="option" aria-selected="true" data-content-language-option="0">简体中文</button>
+                      <button class="filter-option" type="button" role="option" aria-selected="false" data-content-language-option="1">英文</button>
+                      <button class="filter-option" type="button" role="option" aria-selected="false" data-content-language-option="2">繁体中文</button>
+                      <button class="filter-option" type="button" role="option" aria-selected="false" data-content-language-option="3">泰文</button>
+                      <button class="filter-option" type="button" role="option" aria-selected="false" data-content-language-option="4">马来语</button>
+                      <button class="filter-option" type="button" role="option" aria-selected="false" data-content-language-option="5">印尼语</button>
+                      <button class="filter-option" type="button" role="option" aria-selected="false" data-content-language-option="6">越南语</button>
+                      <button class="filter-option" type="button" role="option" aria-selected="false" data-content-language-option="7">韩语</button>
+                      <button class="filter-option" type="button" role="option" aria-selected="false" data-content-language-option="8">日语</button>
+                      <button class="filter-option" type="button" role="option" aria-selected="false" data-content-language-option="9">西班牙语</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-grid">
+                  <div class="form-field full">
+                    <div class="field-label-row">
+                      <span class="field-label-group"><label class="field-label required" for="album-title" data-i18n="title">标题</label><span class="field-review-reason" data-title-review-indicator data-i18n="titleReviewReason" hidden>封面与标题不一致（简体中文、英文）</span><span class="content-source-tag" data-source-tag="title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5L8 21l-5-5L15 4Z" /><path d="m6 3 .7 1.3L8 5l-1.3.7L6 7l-.7-1.3L4 5l1.3-.7L6 3Z" /><path d="m19 15 .7 1.3 1.3.7-1.3.7L19 19l-.7-1.3L17 17l1.3-.7L19 15Z" /></svg><span>智能生成</span></span></span>
+                    </div>
+                    <div class="limited-field">
+                      <input class="field-control" id="album-title" name="title" value="Moonlit Bistro" aria-describedby="album-title-count album-title-error" data-edit-title-input />
+                      <div class="field-meta">
+                        <span class="char-count" id="album-title-count" data-title-count>0/20</span>
+                      </div>
+                    </div>
+                    <span class="field-error limit-error" id="album-title-error" data-title-error hidden></span>
+                  </div>
+                  <div class="form-field full">
+                    <div class="field-label-row">
+                      <span class="field-label-group"><label class="field-label required" for="album-tagline" data-i18n="oneLineDescription">一句话推荐</label><span class="content-source-tag" data-source-tag="tagline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5L8 21l-5-5L15 4Z" /><path d="m6 3 .7 1.3L8 5l-1.3.7L6 7l-.7-1.3L4 5l1.3-.7L6 3Z" /><path d="m19 15 .7 1.3 1.3.7-1.3.7L19 19l-.7-1.3L17 17l1.3-.7L19 15Z" /></svg><span>智能生成</span></span></span>
+                    </div>
+                    <div class="limited-field">
+                      <input class="field-control" id="album-tagline" name="tagline" value="第六集迎来关键转折" maxlength="40" aria-describedby="album-tagline-count album-tagline-error" data-edit-tagline-input />
+                      <div class="field-meta"><span class="char-count" id="album-tagline-count" data-tagline-count>0/40</span></div>
+                    </div>
+                    <span class="field-error limit-error" id="album-tagline-error" data-tagline-error hidden></span>
+                  </div>
+                  <div class="form-field full">
+                    <div class="field-label-row">
+                      <span class="field-label-group"><label class="field-label required" for="album-description" data-i18n="description">描述</label><span class="content-source-tag" data-source-tag="description"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5L8 21l-5-5L15 4Z" /><path d="m6 3 .7 1.3L8 5l-1.3.7L6 7l-.7-1.3L4 5l1.3-.7L6 3Z" /><path d="m19 15 .7 1.3 1.3.7-1.3.7L19 19l-.7-1.3L17 17l1.3-.7L19 15Z" /></svg><span>智能生成</span></span></span>
+                    </div>
+                    <div class="limited-field">
+                      <textarea class="textarea-control" id="album-description" name="description" aria-describedby="album-description-count album-description-error" data-edit-description-input>这段深夜喜剧预告展示了第六集上线前的关键转折。</textarea>
+                      <div class="field-meta">
+                        <span class="char-count" id="album-description-count" data-description-count>0/300</span>
+                      </div>
+                    </div>
+                    <span class="field-error limit-error" id="album-description-error" data-description-error hidden></span>
+                  </div>
+                  <div class="form-field full">
+                    <div class="field-label-row">
+                      <span class="field-label-group"><span class="field-label required" data-i18n="cover">封面</span><strong class="field-review-reason" data-cover-review-indicator data-i18n="coverReviewReason" hidden>封面与标题不一致（简体中文、英文）</strong><span class="content-source-tag" data-source-tag="cover"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5L8 21l-5-5L15 4Z" /><path d="m6 3 .7 1.3L8 5l-1.3.7L6 7l-.7-1.3L4 5l1.3-.7L6 3Z" /><path d="m19 15 .7 1.3 1.3.7-1.3.7L19 19l-.7-1.3L17 17l1.3-.7L19 15Z" /></svg><span>智能生成</span></span></span>
+                    </div>
+                    <div class="cover-uploader" data-cover-uploader>
+                      <div class="cover-preview-grid" aria-label="Cover previews">
+                        <div class="cover-slot" data-cover-slot>
+                          <div class="cover-preview landscape" aria-label="16:9 landscape cover preview">
+                            <span class="cover-art" aria-hidden="true">
+                            </span>
+                            <div class="cover-overlay" aria-label="16:9 cover actions">
+                              <button class="cover-hover-action" type="button" data-cover-upload data-i18n="reupload">重新上传</button>
+                            </div>
+                            <input class="cover-file-input" type="file" accept="image/*" data-cover-file />
+                          </div>
+                          <span class="cover-label"><span class="cover-label-text" data-i18n="coverLandscape">16:9 横版</span><span class="cover-info" tabindex="0" role="img" aria-label="横版封面上传要求" data-i18n-aria-label="coverLandscapeInfo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v6" /><path d="M12 7h.01" /></svg><span class="cover-info-tooltip" role="tooltip"><span class="cover-info-placeholder landscape" aria-hidden="true"></span><span class="cover-info-tooltip-text" data-i18n="coverLandscapeTooltip">支持无损位图格式，大小不超过500千字节，尺寸不超过1920×1080像素</span></span></span></span>
+                        </div>
+                        <div class="cover-slot" data-cover-slot>
+                          <div class="cover-preview portrait" aria-label="3:4 portrait cover preview">
+                            <span class="cover-art" aria-hidden="true">
+                            </span>
+                            <div class="cover-overlay" aria-label="3:4 cover actions">
+                              <button class="cover-hover-action" type="button" data-cover-upload data-i18n="reupload">重新上传</button>
+                            </div>
+                            <input class="cover-file-input" type="file" accept="image/*" data-cover-file />
+                          </div>
+                          <span class="cover-label"><span class="cover-label-text" data-i18n="coverPortrait">3:4 竖版</span><span class="cover-info" tabindex="0" role="img" aria-label="竖版封面上传要求" data-i18n-aria-label="coverPortraitInfo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v6" /><path d="M12 7h.01" /></svg><span class="cover-info-tooltip" role="tooltip"><span class="cover-info-placeholder portrait" aria-hidden="true"></span><span class="cover-info-tooltip-text" data-i18n="coverPortraitTooltip">支持无损位图格式，大小不超过500千字节，尺寸不超过1920×2560像素</span></span></span></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cover-upload-notes" aria-label="封面图上传说明" data-i18n-aria-label="coverUploadGuidance">
+                      <p class="cover-upload-note" data-i18n="coverFormatRequirement">封面图格式要求：建议横图、竖图各至少一张，可同时选择多张图上传，每张图不超过5兆字节，支持常见图片格式。</p>
+                      <p class="cover-upload-note" data-i18n="coverRecommendation">封面图建议：上传高清封面图、同时避免出现人脸裁切、剧名文字遮挡等问题，优质封面图会给作品带来更多场景分发</p>
+                      <p class="cover-upload-note" data-i18n="coverTitleConsistency">封面图内标题须与标题一致</p>
+                    </div>
+                    <span class="field-error limit-error" id="album-cover-error" data-cover-error hidden></span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="form-section" aria-labelledby="distribution-title">
+                <h2 class="section-title" id="distribution-title" data-i18n="distributionSettings">分发设置</h2>
+                <div class="form-grid distribution-grid">
+                  <div class="form-field">
+                    <span class="field-label required" data-i18n="freePaidStatusLabel">免费/付费状态</span>
+                    <div class="iqb-radio-group" role="radiogroup" aria-label="免费/付费状态" data-i18n-aria-label="freePaidStatusLabel" aria-describedby="album-paid-status-error" data-paid-status-group>
+                      <label class="iqb-radio">
+                        <input class="iqb-radio-input" type="radio" name="paidStatus" value="Free" checked disabled />
+                        <span class="iqb-radio-mark" aria-hidden="true"></span>
+                        <span data-i18n="free">免费</span>
+                      </label>
+                      <label class="iqb-radio">
+                        <input class="iqb-radio-input" type="radio" name="paidStatus" value="Paid" disabled />
+                        <span class="iqb-radio-mark" aria-hidden="true"></span>
+                        <span data-i18n="paid">付费</span>
+                      </label>
+                    </div>
+                    <p class="field-help-text" data-i18n="paidStatusLockedHint">同国内爱奇艺号保持一致，暂不支持修改</p>
+                    <span class="field-error limit-error" id="album-paid-status-error" data-paid-status-error hidden></span>
+                  </div>
+                  <div class="form-field" style="display: none" aria-hidden="true" data-removed-rating-field>
+                    <span class="field-label required" data-i18n="ratingInformation">评级信息</span>
+                    <span class="iqb-select" data-rating-select>
+                      <input type="hidden" name="rating" value="13+" data-rating-value />
+                      <button class="iqb-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-describedby="album-rating-error" data-rating-trigger>
+                        <span data-rating-label>13+</span>
+                        <svg class="iqb-select-icon icon" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </button>
+                      <div class="iqb-select-menu" role="listbox" aria-label="评级信息" data-i18n-aria-label="ratingInformation" hidden data-rating-menu>
+                        <button class="iqb-select-option" type="button" role="option" aria-selected="false" data-rating-option="All ages"><span data-i18n="allAges">全年龄</span><svg class="iqb-select-check icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" /></svg></button>
+                        <button class="iqb-select-option" type="button" role="option" aria-selected="true" data-rating-option="13+"><span>13+</span><svg class="iqb-select-check icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" /></svg></button>
+                        <button class="iqb-select-option" type="button" role="option" aria-selected="false" data-rating-option="16+"><span>16+</span><svg class="iqb-select-check icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" /></svg></button>
+                        <button class="iqb-select-option" type="button" role="option" aria-selected="false" data-rating-option="18+"><span>18+</span><svg class="iqb-select-check icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4 10-10" /></svg></button>
+                      </div>
+                    </span>
+                    <span class="field-error limit-error" id="album-rating-error" data-rating-error hidden></span>
+                  </div>
+                  <div class="form-field full" style="display: none" aria-hidden="true" data-removed-regions-field>
+                    <div class="field-label-row">
+                      <span class="field-label required" data-i18n="launchRegions">上线地区</span>
+                      <label class="iqb-checkbox">
+                        <input class="iqb-checkbox-input" type="checkbox" checked data-region-all />
+                        <span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                        <span data-i18n="selectAll">全选</span>
+                      </label>
+                    </div>
+                    <div class="tag-checkbox-grid" aria-label="上线地区" data-i18n-aria-label="launchRegions" aria-describedby="album-regions-error" data-regions-group>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Mainland China" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>中国大陆</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Hong Kong" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>中国香港</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Macao" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>中国澳门</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Taiwan" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>中国台湾</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Southeast Asia" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>东南亚</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Singapore" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>新加坡</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Malaysia" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>马来西亚</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Thailand" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>泰国</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Indonesia" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>印度尼西亚</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Philippines" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>菲律宾</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Vietnam" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>越南</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Japan" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>日本</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="South Korea" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>韩国</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="United States" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>美国</span></label>
+                      <label class="iqb-checkbox"><input class="iqb-checkbox-input" type="checkbox" name="regions" value="Global" checked data-region-option /><span class="iqb-checkbox-box"><svg class="iqb-checkbox-check" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.2 6.5 11 12.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span><span>全球</span></label>
+                    </div>
+                    <span class="field-error limit-error" id="album-regions-error" data-regions-error hidden></span>
+                  </div>
+                </div>
+              </section>
+            </form>
+
+            <aside class="preview-column" aria-label="内容预览" data-i18n-aria-label="contentPreview">
+              <div data-edit-preview-home></div>
+              <section class="preview-card" data-edit-preview-card>
+                <div class="video-player" data-edit-video-player>
+                </div>
+                <div class="preview-details">
+                  <div class="preview-title-row">
+                    <h2 class="preview-title" data-edit-preview-title>月光小酒馆</h2>
+                    <span class="edit-category-tag type-tag comic-drama" data-edit-category>漫剧</span>
+                  </div>
+                  <div class="meta-list">
+                    <div class="meta-row" data-edit-file-name-row><span data-i18n="fileName">文件名</span><strong data-edit-file-name>feature.mp4</strong></div>
+                    <div class="meta-row"><span data-i18n="videoId">视频编号</span><strong data-edit-video-id>VID-2408-0187</strong></div>
+                    <div class="meta-row"><span data-i18n="publication">发布状态</span><strong class="status-pill offline" data-edit-publication><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="m8.5 8.5 7 7" /></svg><span>已下线</span></strong></div>
+                    <div class="meta-row"><span data-i18n="updated">更新时间</span><strong data-edit-updated>昨天 18:40:00</strong></div>
+                    <div class="meta-row"><span data-i18n="firstPublished">首次发布时间</span><strong data-edit-first-published>2026年8月1日 00:00:00</strong></div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="episode-toolbar" data-edit-episode-toolbar>
+                <div class="content-filters" aria-label="内容筛选" data-i18n-aria-label="contentFiltersAria">
+                  <div class="filter-group">
+                    <button class="filter-control" type="button" aria-haspopup="listbox" aria-expanded="false" data-filter-field="freePaidStatus" data-episode-filter-trigger="freePaidStatus">
+                      <span class="filter-label-frame"><svg class="icon filter-recognition-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16" /><path d="M7 12h10" /><path d="M10 17h4" /></svg></span>
+                      <span class="filter-value" data-episode-filter-label data-i18n="freePaid">免费/付费</span>
+                      <svg class="icon filter-expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                      <span class="episode-filter-clear" role="button" tabindex="-1" aria-label="清除筛选" data-i18n-aria-label="clearFilter" data-episode-filter-clear><svg class="icon" data-icon-semantic="Close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" /></svg></span>
+                    </button>
+                    <div class="filter-menu" role="listbox" aria-label="免费/付费" data-i18n-aria-label="freePaid" data-episode-filter-menu="freePaidStatus" hidden>
+                      <button class="filter-option" type="button" role="option" data-episode-filter-option="freePaidStatus" data-value="Free" data-i18n="free" aria-selected="false">免费</button>
+                      <button class="filter-option" type="button" role="option" data-episode-filter-option="freePaidStatus" data-value="Paid" data-i18n="paid" aria-selected="false">付费</button>
+                    </div>
+                  </div>
+                  <div class="filter-group">
+                    <button class="filter-control" type="button" aria-haspopup="listbox" aria-expanded="false" data-filter-field="publicationStatus" data-episode-filter-trigger="publicationStatus">
+                      <span class="filter-label-frame"><svg class="icon filter-recognition-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16" /><path d="M7 12h10" /><path d="M10 17h4" /></svg></span>
+                      <span class="filter-value" data-episode-filter-label data-i18n="publication">发布状态</span>
+                      <svg class="icon filter-expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                      <span class="episode-filter-clear" role="button" tabindex="-1" aria-label="清除筛选" data-i18n-aria-label="clearFilter" data-episode-filter-clear><svg class="icon" data-icon-semantic="Close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" /></svg></span>
+                    </button>
+                    <div class="filter-menu" role="listbox" aria-label="发布状态" data-i18n-aria-label="publication" data-episode-filter-menu="publicationStatus" hidden>
+                      <button class="filter-option" type="button" role="option" data-episode-filter-option="publicationStatus" data-value="Online" data-i18n="online" aria-selected="false">上线</button>
+                      <button class="filter-option" type="button" role="option" data-episode-filter-option="publicationStatus" data-value="Publishing" data-i18n="publishing" aria-selected="false">发布中</button>
+                      <button class="filter-option" type="button" role="option" data-episode-filter-option="publicationStatus" data-value="Offline" data-i18n="offline" aria-selected="false">已下线</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <section class="episode-card" id="edit-episodes-panel" role="tabpanel" aria-labelledby="edit-episodes-tab" data-edit-episode-card>
+                <div class="episode-table-scroll">
+                  <div class="episode-table-header" role="row">
+                    <span data-i18n="episodeName">剧集名称</span>
+                    <span data-i18n="freePaidStatus">免费/付费状态</span>
+                    <span data-i18n="publicationStatus">发布状态</span>
+                    <span data-i18n="updated">更新时间</span>
+                    <span data-i18n="firstPublished">首次发布时间</span>
+                    <span data-i18n="action">操作</span>
+                  </div>
+                  <div class="episode-list" data-edit-episode-list></div>
+                </div>
+              </section>
+              <div class="pagination episode-pagination" aria-label="分页" data-i18n-aria-label="pagination" data-edit-episode-pagination>
+                  <span class="pagination-range" data-episode-pagination-range>共 20 条</span>
+                  <div class="pagination-controls">
+                    <button class="pagination-button" type="button" aria-label="上一页" data-i18n-aria-label="previousPage" data-episode-page-prev>
+                      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+                    </button>
+                    <span class="pagination-pages" data-episode-page-numbers></span>
+                    <button class="pagination-button" type="button" aria-label="下一页" data-i18n-aria-label="nextPage" data-episode-page-next>
+                      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+                    </button>
+                  </div>
+                  <span class="page-size-select" data-episode-page-size>
+                    <button class="page-size-trigger" type="button" aria-label="每页条数" data-i18n-aria-label="rowsPerPage" aria-haspopup="menu" aria-controls="episode-page-size-menu" aria-expanded="false" data-episode-page-size-trigger>
+                      <span data-episode-page-size-label>10 条 / 页</span>
+                      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <span class="page-size-menu" id="episode-page-size-menu" role="menu" aria-label="每页条数" data-i18n-aria-label="rowsPerPage" data-episode-page-size-menu hidden>
+                      <button class="page-size-option selected" type="button" role="menuitemradio" aria-checked="true" data-episode-page-size-option="10">10 条 / 页</button>
+                      <button class="page-size-option" type="button" role="menuitemradio" aria-checked="false" data-episode-page-size-option="20">20 条 / 页</button>
+                      <button class="page-size-option" type="button" role="menuitemradio" aria-checked="false" data-episode-page-size-option="50">50 条 / 页</button>
+                      <button class="page-size-option" type="button" role="menuitemradio" aria-checked="false" data-episode-page-size-option="100">100 条 / 页</button>
+                    </span>
+                  </span>
+              </div>
+            </aside>
+          </div>
+
+          <div class="content-toolbar-frame">
+            <nav aria-label="内容菜单" data-i18n-aria-label="contentMenuAria">
+              <ul class="content-menu" role="tablist">
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-all" data-content-tab="all" data-i18n="all" aria-selected="true" aria-controls="content-panel">全部</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-short" data-content-tab="short" data-i18n="short" aria-selected="false" aria-controls="content-panel">短剧</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-comic-drama" data-content-tab="comic-drama" data-i18n="comicDrama" aria-selected="false" aria-controls="content-panel">漫剧</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-movie" data-content-tab="movie" data-i18n="movie" aria-selected="false" aria-controls="content-panel">电影</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-drama" data-content-tab="drama" data-i18n="drama" aria-selected="false" aria-controls="content-panel">电视剧</button></li>
+                <li><button class="content-menu-link" type="button" role="tab" id="tab-anime" data-content-tab="anime" data-i18n="anime" aria-selected="false" aria-controls="content-panel">动漫</button></li>
+              </ul>
+            </nav>
+            <div class="content-filters" aria-label="内容筛选" data-i18n-aria-label="contentFiltersAria">
+              <div class="filter-group">
+                <button class="filter-control" type="button" aria-haspopup="listbox" aria-expanded="false" data-filter-trigger data-filter-field="freePaidStatus">
+                  <span class="filter-label-frame">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 7h16" />
+                      <path d="M7 12h10" />
+                      <path d="M10 17h4" />
+                    </svg>
+                    <span class="filter-label" data-i18n="freePaid">免费/付费</span>
+                  </span>
+                  <span class="filter-value" data-filter-value>全部</span>
+                  <svg class="icon filter-expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </button>
+                <div class="filter-menu" role="listbox" aria-label="免费/付费" data-i18n-aria-label="freePaid" hidden>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="freePaidStatus" data-filter-value="" data-i18n="all" aria-selected="true">全部</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="freePaidStatus" data-filter-value="Free" data-i18n="free" aria-selected="false">免费</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="freePaidStatus" data-filter-value="Paid" data-i18n="paid" aria-selected="false">付费</button>
+                </div>
+              </div>
+              <div class="filter-group">
+                <button class="filter-control" type="button" aria-haspopup="listbox" aria-expanded="false" data-filter-trigger data-filter-field="publicationStatus">
+                  <span class="filter-label-frame">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 7h16" />
+                      <path d="M7 12h10" />
+                      <path d="M10 17h4" />
+                    </svg>
+                    <span class="filter-label" data-i18n="publication">发布状态</span>
+                  </span>
+                  <span class="filter-value" data-filter-value>全部</span>
+                  <svg class="icon filter-expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </button>
+                <div class="filter-menu" role="listbox" aria-label="发布状态" data-i18n-aria-label="publication" hidden>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="publicationStatus" data-filter-value="" data-i18n="all" aria-selected="true">全部</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="publicationStatus" data-filter-value="Online" data-i18n="online" aria-selected="false">上线</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="publicationStatus" data-filter-value="Publishing" data-i18n="publishing" aria-selected="false">发布中</button>
+                  <button class="filter-option" type="button" role="option" data-filter-option data-filter-field="publicationStatus" data-filter-value="Offline" data-i18n="offline" aria-selected="false">已下线</button>
+                </div>
+              </div>
+              <div class="search-control">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m16 16 5 5" />
+                </svg>
+                <input class="search-input" type="search" aria-label="搜索标题或内容编号" placeholder="搜索标题或内容编号" data-i18n-aria-label="searchPlaceholder" data-i18n-placeholder="searchPlaceholder" data-search-input />
+                <button class="search-clear" type="button" aria-label="清除搜索" data-i18n-aria-label="clearSearch" data-search-clear hidden>
+                  <svg class="icon" data-icon-semantic="Close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" /></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="content-view">
+            <section class="content-panel video-list-card" id="content-panel" role="tabpanel" aria-labelledby="tab-all">
+              <div class="video-list-header-scroll" data-video-list-header-scroll>
+                <div class="video-list-header" role="row">
+                  <span data-i18n="video">视频</span>
+                  <span data-i18n="freePaidStatus">免费/付费状态</span>
+                  <span data-i18n="publicationStatus">发布状态</span>
+                  <span data-i18n="updated">更新时间</span>
+                  <span data-i18n="action">操作</span>
+                </div>
+              </div>
+              <div class="video-list-scroll" data-video-list-scroll>
+                <div class="video-list-table">
+                  <div class="video-list-body" data-video-list></div>
+                </div>
+              </div>
+            </section>
+            <div class="pagination" aria-label="分页" data-i18n-aria-label="pagination">
+              <span class="pagination-range" data-pagination-range>共 20 条</span>
+              <div class="pagination-controls">
+                <button class="pagination-button" type="button" aria-label="上一页" data-i18n-aria-label="previousPage" data-page-prev>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                </button>
+                <span class="pagination-pages" data-page-numbers></span>
+                <button class="pagination-button" type="button" aria-label="下一页" data-i18n-aria-label="nextPage" data-page-next>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+              <span class="page-size-select" data-page-size>
+                <button class="page-size-trigger" type="button" aria-label="每页条数" data-i18n-aria-label="rowsPerPage" aria-expanded="false" data-page-size-trigger data-page-size-value="10">
+                  <span data-page-size-label>10 条 / 页</span>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <span class="page-size-menu" data-page-size-menu hidden>
+                  <button class="page-size-option selected" type="button" data-page-size-option="10">10 条 / 页</button>
+                  <button class="page-size-option" type="button" data-page-size-option="20">20 条 / 页</button>
+                  <button class="page-size-option" type="button" data-page-size-option="50">50 条 / 页</button>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="modal-backdrop" data-translation-modal hidden>
+      <section class="translation-modal" role="dialog" aria-modal="true" aria-labelledby="translation-modal-title">
+        <header class="modal-header">
+          <div>
+            <h2 class="modal-title" id="translation-modal-title" data-translation-modal-title>多语言编辑</h2>
+            <p class="modal-subtitle" data-i18n="generatedContentEditable">平台生成内容可重新编辑</p>
+          </div>
+          <button class="modal-close" type="button" aria-label="关闭" data-i18n-aria-label="close" data-translation-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 7l10 10" />
+              <path d="M17 7L7 17" />
+            </svg>
+          </button>
+        </header>
+        <div class="translation-list" data-translation-list></div>
+      </section>
+    </div>
+    <div class="modal-backdrop" data-cover-translation-modal hidden>
+      <section class="translation-modal" role="dialog" aria-modal="true" aria-labelledby="cover-translation-modal-title">
+        <header class="modal-header">
+          <div>
+            <h2 class="modal-title" id="cover-translation-modal-title" data-i18n="posterMultilingualTitle">海报图多语言调整</h2>
+            <p class="modal-subtitle" data-i18n="posterMultilingualSubtitle">按语言调整对应海报图</p>
+          </div>
+          <button class="modal-close" type="button" aria-label="关闭" data-i18n-aria-label="close" data-cover-translation-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 7l10 10" />
+              <path d="M17 7L7 17" />
+            </svg>
+          </button>
+        </header>
+        <div class="poster-list" data-cover-translation-list></div>
+      </section>
+    </div>
+    <div class="modal-backdrop" data-episode-preview-modal hidden>
+      <section class="episode-preview-modal" role="dialog" aria-modal="true" aria-labelledby="episode-preview-modal-title">
+        <header class="modal-header">
+          <div class="episode-preview-heading">
+            <h2 class="modal-title" id="episode-preview-modal-title" data-episode-preview-title>剧集预览</h2>
+            <div class="preview-language-select" data-preview-language-select hidden>
+              <button class="preview-language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" data-preview-language-trigger><span class="filter-label" data-i18n="subtitles">字幕</span><span data-preview-language-value>简体中文</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></button>
+              <div class="preview-language-menu" role="listbox" data-preview-language-menu hidden>
+                <button class="preview-language-option" type="button" role="option" data-preview-language-option="simplifiedChinese" aria-selected="true"><span data-i18n="simplifiedChinese">简体中文</span></button>
+                <button class="preview-language-option" type="button" role="option" data-preview-language-option="english" aria-selected="false"><span data-i18n="english">英文</span></button>
+                <button class="preview-language-option" type="button" role="option" data-preview-language-option="thai" aria-selected="false"><span data-i18n="thai">泰语</span></button>
+                <button class="preview-language-option" type="button" role="option" data-preview-language-option="malay" aria-selected="false"><span data-i18n="malay">马来语</span></button>
+              </div>
+            </div>
+          </div>
+          <button class="modal-close" type="button" aria-label="关闭" data-i18n-aria-label="close" data-episode-preview-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10" /><path d="M17 7 7 17" /></svg>
+          </button>
+        </header>
+        <div class="episode-preview-player">
+          <video class="episode-preview-video" controls playsinline preload="metadata" poster="./assets/images/video-player-placeholder.png" data-episode-preview-video><source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" /></video>
+          <p class="episode-preview-caption" data-episode-preview-caption hidden></p>
+        </div>
+      </section>
+    </div>
+    <div class="subtitle-drawer-overlay" data-subtitle-drawer-overlay aria-hidden="true">
+      <section class="subtitle-drawer" role="dialog" aria-modal="true" aria-labelledby="subtitle-drawer-title" tabindex="-1">
+        <header class="subtitle-drawer-header">
+          <div class="subtitle-drawer-heading">
+            <h2 class="subtitle-drawer-title" id="subtitle-drawer-title" data-i18n="editSubtitles">修改字幕</h2>
+            <p class="subtitle-drawer-description" data-subtitle-drawer-description></p>
+          </div>
+          <button class="modal-close" type="button" aria-label="关闭" data-i18n-aria-label="close" data-subtitle-drawer-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10" /><path d="M17 7 7 17" /></svg>
+          </button>
+        </header>
+        <main class="subtitle-drawer-body">
+          <div class="subtitle-drawer-tools">
+            <div class="subtitle-format-note">
+              <p class="subtitle-format-note-primary" data-i18n="subtitleFileNameHint">文件名中的语种码将自动匹配，例如 episode01.zh-CN.srt</p>
+              <p class="subtitle-format-note-secondary" data-i18n="subtitleFormatNote">仅支持 .srt、.vtt、.ass、.ssa 格式</p>
+            </div>
+            <button class="edit-action primary subtitle-batch-upload" type="button" data-subtitle-batch-upload>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4" /><path d="m7 9 5-5 5 5" /><path d="M5 14v5h14v-5" /></svg>
+              <span data-i18n="batchUploadSubtitles">批量上传字幕</span>
+              <span class="subtitle-batch-upload-tooltip" role="tooltip" data-i18n="batchUploadNamingHint">系统根据命名规则自动识别对应语种，请规范命名</span>
+            </button>
+          </div>
+          <div class="subtitle-table-wrap">
+            <table class="subtitle-table">
+              <thead><tr><th data-i18n="subtitleLanguage">语言</th><th data-i18n="subtitleFile">字幕文件</th><th data-i18n="fileSource">文件来源</th><th data-i18n="uploadStatus">上传状态</th><th data-i18n="action">操作</th></tr></thead>
+              <tbody>
+                <tr><td data-i18n="simplifiedChinese">简体中文</td><td><span class="subtitle-file-name">episode01.zh-CN.srt</span></td><td><span class="content-source-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5L8 21l-5-5L15 4Z" /><path d="m6 3 .7 1.3L8 5l-1.3.7L6 7l-.7-1.3L4 5l1.3-.7L6 3Z" /><path d="m19 15 .7 1.3 1.3.7-1.3.7L19 19l-.7-1.3L17 17l1.3-.7L19 15Z" /></svg><span data-i18n="aiGenerated">智能生成</span></span></td><td><span class="subtitle-upload-status" data-i18n="uploaded">已上传</span></td><td><span class="subtitle-row-actions"><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="modify">修改</button><button class="row-action subtitle-preview-action" type="button" data-subtitle-preview aria-label="Preview"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 6.5 9.5 5.5-9.5 5.5v-11Z" /></svg></button></span></td></tr>
+                <tr><td data-i18n="english">英文</td><td><span class="subtitle-file-name">episode01.en-US.srt</span></td><td><span class="content-source-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5L8 21l-5-5L15 4Z" /><path d="m6 3 .7 1.3L8 5l-1.3.7L6 7l-.7-1.3L4 5l1.3-.7L6 3Z" /><path d="m19 15 .7 1.3 1.3.7-1.3.7L19 19l-.7-1.3L17 17l1.3-.7L19 15Z" /></svg><span data-i18n="aiGenerated">智能生成</span></span></td><td><span class="subtitle-upload-status" data-i18n="uploaded">已上传</span></td><td><span class="subtitle-row-actions"><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="modify">修改</button><button class="row-action subtitle-preview-action" type="button" data-subtitle-preview aria-label="Preview"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 6.5 9.5 5.5-9.5 5.5v-11Z" /></svg></button></span></td></tr>
+                <tr><td data-i18n="traditionalChinese">繁体中文</td><td>—</td><td>—</td><td>—</td><td><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="upload">上传</button></td></tr>
+                <tr><td data-i18n="thai">泰语</td><td><span class="subtitle-file-name">episode01.th-TH.srt</span></td><td><span class="content-source-tag manual"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z" /></svg><span data-i18n="manualLabel">人工</span></span></td><td><span class="subtitle-upload-status" data-i18n="uploaded">已上传</span></td><td><span class="subtitle-row-actions"><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="modify">修改</button><button class="row-action subtitle-preview-action" type="button" data-subtitle-preview aria-label="Preview"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 6.5 9.5 5.5-9.5 5.5v-11Z" /></svg></button></span></td></tr>
+                <tr><td data-i18n="malay">马来语</td><td><span class="subtitle-file-name">episode01.ms-MY.srt</span></td><td><span class="content-source-tag manual"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z" /></svg><span data-i18n="manualLabel">人工</span></span></td><td><span class="subtitle-upload-status" data-i18n="uploaded">已上传</span></td><td><span class="subtitle-row-actions"><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="modify">修改</button><button class="row-action subtitle-preview-action" type="button" data-subtitle-preview aria-label="Preview"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 6.5 9.5 5.5-9.5 5.5v-11Z" /></svg></button></span></td></tr>
+                <tr><td data-i18n="indonesian">印尼语</td><td>—</td><td>—</td><td>—</td><td><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="upload">上传</button></td></tr>
+                <tr><td data-i18n="vietnamese">越南语</td><td>—</td><td>—</td><td>—</td><td><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="upload">上传</button></td></tr>
+                <tr><td data-i18n="korean">韩语</td><td>—</td><td>—</td><td>—</td><td><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="upload">上传</button></td></tr>
+                <tr><td data-i18n="japanese">日语</td><td>—</td><td>—</td><td>—</td><td><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="upload">上传</button></td></tr>
+                <tr><td data-i18n="spanish">西班牙语</td><td>—</td><td>—</td><td>—</td><td><button class="row-action small" type="button" data-subtitle-upload-row data-i18n="upload">上传</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <input type="file" accept=".srt,.vtt,.ass,.ssa" multiple hidden data-subtitle-file-input />
+        </main>
+      </section>
+    </div>
+    <div class="subtitle-confirm-backdrop" data-subtitle-confirm hidden>
+      <section class="subtitle-confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="subtitle-confirm-title" aria-describedby="subtitle-confirm-description" tabindex="-1">
+        <div class="modal-header"><div class="modal-heading"><h2 class="modal-title" id="subtitle-confirm-title" data-subtitle-confirm-title></h2></div><button class="close-btn" type="button" aria-label="关闭" data-i18n-aria-label="close" data-subtitle-confirm-close><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10" /><path d="M17 7 7 17" /></svg></button></div>
+        <div class="modal-body" id="subtitle-confirm-description" data-subtitle-confirm-description></div>
+        <footer class="modal-footer" data-subtitle-confirm-footer></footer>
+      </section>
+    </div>
+    <div class="subtitle-message-portal" data-subtitle-message-portal aria-live="polite"></div>
+    <script src="assets/js/account-state-dom.js?v=41"></script>
+    <script src="assets/js/views/edit.js?v=41"></script>
+    <script src="assets/js/drama-covers.js?v=41"></script>
+    <script src="assets/js/views/edit-init.js?v=41"></script>
+    <script src="assets/js/episode-loading.js?v=41"></script>
+  </body>
+</html>

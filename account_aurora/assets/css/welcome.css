@@ -1,0 +1,62 @@
+/* Modal tokens follow DesignSystem/feedback/modal.html. */
+:root {
+  --modal-width-sm: 400px;
+  --modal-bg: var(--color-bg-elevated);
+  --modal-max-height: 90vh;
+  --modal-radius: var(--radius-xlarge);
+  --modal-shadow: var(--shadow-overlay);
+  --modal-border-color: var(--color-border-subtle);
+}
+.welcome {
+  position: fixed;
+  inset: 60px 0 0;
+  display: grid;
+  place-items: center;
+  z-index: 0;
+  isolation: isolate;
+  padding: 24px;
+}
+.welcome-background, .welcome-mask {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.welcome-background { object-fit: cover; object-position: center; z-index: 0; }
+.welcome-mask { background: var(--color-overlay-black-default); z-index: 1; }
+.welcome-modal {
+  position: relative;
+  z-index: 2;
+  width: min(var(--modal-width-sm), calc(100vw - 48px));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  max-height: min(var(--modal-max-height), calc(100dvh - 144px));
+  overflow: hidden;
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border-color);
+  border-radius: var(--modal-radius);
+  box-shadow: var(--modal-shadow);
+  outline: none;
+}
+@media (max-width: 760px) {
+  .welcome { padding: 20px; }
+  .welcome-modal { width: min(var(--modal-width-sm), calc(100vw - 40px)); }
+}
+
+/* Modal typography follows feedback/modal.html; section spacing follows the page specification. */
+.modal-header { display: flex; align-items: center; gap: 16px; padding: 24px; }
+.modal-heading { flex: 1 1 auto; min-width: 0; }
+.modal-title { margin: 0; color: var(--color-text-primary); font-size: var(--font-style-title-3-size); font-weight: var(--font-style-title-3-weight); line-height: 28px; }
+.modal-description { margin: 2px 0 0; color: var(--color-text-tertiary); font-size: var(--font-style-caption-size); font-weight: var(--font-style-caption-weight); line-height: var(--font-style-caption-line-height); }
+.modal-body { min-height: 0; overflow: auto; padding: 0 24px 24px; color: var(--color-text-secondary); font-size: var(--font-style-body-size); line-height: var(--font-style-body-line-height); }
+.login-methods { display: grid; gap: 16px; }
+.login-method { width: 100%; --button-gap: 8px; --button-icon-size: 16px; }
+.login-method-icon { display: block; width: var(--button-icon-size); height: var(--button-icon-size); flex: 0 0 var(--button-icon-size); color: inherit; fill: currentColor; }
+.login-support { display: grid; gap: 24px; padding-top: 16px; }
+.register-copy { margin: 0; text-align: center; }
+.action-link, .legal-link { display: inline; padding: 0; border: 0; background: transparent; cursor: pointer; font: inherit; }
+.action-link { text-decoration: none; color: var(--color-action-primary); }
+.action-link:hover, .legal-link:hover { color: var(--color-action-primary-hover); }
+.login-legal { margin: 0; color: var(--color-text-tertiary); font-size: var(--font-style-caption-size); font-weight: var(--font-style-caption-weight); line-height: var(--font-style-caption-line-height); }
+.legal-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.action-link:focus-visible, .legal-link:focus-visible { outline: 0; border-radius: var(--radius-small); box-shadow: var(--shadow-focus); }

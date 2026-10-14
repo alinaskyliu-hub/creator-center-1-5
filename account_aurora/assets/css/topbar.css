@@ -1,0 +1,414 @@
+* {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: var(--color-bg-page);
+        color: var(--color-text-default);
+        font-family: var(--font-sans);
+      }
+
+      button,
+      a {
+        font: inherit;
+      }
+
+      .topbar {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 100;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 0 24px;
+        background: var(--color-bg-page);
+        border-bottom: 1px solid var(--color-border-subtle);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        color: inherit;
+        text-decoration: none;
+        border-radius: var(--radius-small);
+      }
+
+      .brand:focus-visible {
+        outline: 2px solid var(--color-action-primary);
+        outline-offset: 4px;
+      }
+
+      .brand-logo-link {
+        display: inline-flex;
+        align-items: center;
+        border-radius: var(--radius-small);
+      }
+
+      .brand-logo-link:focus-visible {
+        outline: none;
+      }
+
+      .brand-logo {
+        display: block;
+        width: auto;
+        height: 24px;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .language-switch,
+      .theme-switch {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .icon-button {
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 0;
+        border-radius: var(--radius-default);
+        background: transparent;
+        color: var(--color-text-tertiary);
+        cursor: pointer;
+      }
+
+      .icon-button:hover {
+        background: var(--color-bg-hover);
+        color: var(--color-text-default);
+      }
+
+      .theme-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      html[data-theme="light"] .theme-icon-sun,
+      html[data-theme="dark"] .theme-icon-moon {
+        display: none;
+      }
+
+      .language-trigger:focus-visible,
+      .language-switch.is-open .language-trigger {
+        border-color: var(--color-action-primary);
+        color: var(--color-action-primary);
+      }
+
+      .language-trigger:focus-visible {
+        box-shadow: none;
+      }
+
+      .language-tooltip,
+      .theme-tooltip {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 50%;
+        z-index: 30;
+        padding: 5px 8px;
+        border-radius: var(--radius-small);
+        background: var(--color-bg-inverse);
+        color: var(--color-text-inverse);
+        font-size: var(--font-style-caption-size);
+        line-height: var(--font-style-caption-line-height);
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -2px);
+        transition: opacity 120ms ease 250ms, transform 120ms ease 250ms;
+      }
+
+      .language-switch:hover .language-tooltip,
+      .theme-switch:hover .theme-tooltip {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
+      .language-switch.is-open .language-tooltip,
+      .language-switch.suppress-tooltip .language-tooltip,
+      .language-switch.tooltip-muted .language-tooltip,
+      .theme-switch.tooltip-muted .theme-tooltip,
+      .theme-switch.suppress-tooltip .theme-tooltip {
+        opacity: 0;
+        transform: translate(-50%, -2px);
+        transition-delay: 0ms;
+      }
+
+      .account-entry {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .account-tooltip {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 50%;
+        z-index: 30;
+        padding: 5px 8px;
+        border-radius: var(--radius-small);
+        background: var(--color-bg-inverse);
+        color: var(--color-text-inverse);
+        font-size: var(--font-style-caption-size);
+        line-height: var(--font-style-caption-line-height);
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -2px);
+        transition: opacity 120ms ease 250ms, transform 120ms ease 250ms;
+      }
+
+      .account-entry:hover .account-tooltip {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
+      .account-entry.is-open .account-tooltip,
+      .account-entry.tooltip-muted .account-tooltip,
+      .account-entry.suppress-tooltip .account-tooltip {
+        opacity: 0;
+        transform: translate(-50%, -2px);
+        transition-delay: 0ms;
+      }
+
+      .account-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        z-index: 40;
+        min-width: 224px;
+        padding: 6px;
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-default);
+        background: var(--color-bg-elevated);
+        box-shadow: var(--shadow-overlay);
+      }
+
+      .account-menu[hidden] {
+        display: none;
+      }
+
+      .account-profile {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 8px 10px 10px;
+        border-radius: var(--radius-small);
+      }
+
+      .account-profile-avatar-wrap {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 auto;
+        border-radius: var(--radius-full);
+        overflow: hidden;
+      }
+
+      .account-profile-avatar {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+      }
+
+      .account-profile-avatar-overlay {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: var(--color-overlay-black-default);
+        color: var(--color-text-inverse);
+        opacity: 0;
+        transition: opacity 120ms ease;
+      }
+
+      .account-profile-avatar-overlay .icon {
+        width: 18px;
+        height: 18px;
+        stroke-width: 2;
+      }
+
+      .account-profile:hover {
+        background: var(--color-bg-overlay-hover);
+      }
+
+      .account-profile:focus-within {
+        background: var(--color-bg-overlay-hover);
+      }
+
+      .account-profile:hover .account-profile-avatar-overlay,
+      .account-profile:focus-within .account-profile-avatar-overlay {
+        opacity: 1;
+      }
+
+      .account-profile-copy {
+        min-width: 0;
+      }
+
+      .account-profile-name {
+        margin: 0;
+        color: var(--color-text-default);
+        font-size: var(--font-style-body-size);
+        line-height: var(--font-style-body-line-height);
+        font-weight: var(--font-style-body-medium-weight);
+      }
+
+      .account-profile-id {
+        margin: 0;
+        color: var(--color-text-default);
+        font-size: var(--font-style-caption-size);
+        line-height: var(--font-style-caption-line-height);
+        font-weight: var(--font-style-caption-weight);
+      }
+
+      .account-menu-divider {
+        height: 1px;
+        margin: 6px 0;
+        background: var(--color-border-subtle);
+      }
+
+      .account-option {
+        width: 100%;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 10px;
+        border: 1px solid transparent;
+        border-radius: var(--radius-small);
+        background: transparent;
+        color: var(--color-text-default);
+        cursor: pointer;
+        font-size: var(--font-style-body-size);
+        line-height: var(--font-style-body-line-height);
+        font-weight: var(--font-style-body-medium-weight);
+        text-align: left;
+      }
+
+      .account-option .icon {
+        width: 18px;
+        height: 18px;
+        stroke-width: 2;
+      }
+
+      .account-option:hover {
+        background: var(--color-bg-overlay-hover);
+        color: var(--color-text-default);
+      }
+
+      .account-option.sign-out {
+        color: var(--color-text-default);
+      }
+
+      .language-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        z-index: 40;
+        min-width: 132px;
+        padding: 6px;
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-default);
+        background: var(--color-bg-elevated);
+        box-shadow: var(--shadow-overlay);
+      }
+
+      .language-menu[hidden] {
+        display: none;
+      }
+
+      .language-option {
+        width: 100%;
+        min-height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 0 10px;
+        border: 0;
+        border-radius: var(--radius-small);
+        background: transparent;
+        color: var(--color-text-secondary);
+        cursor: pointer;
+        font-size: var(--font-style-body-size);
+        line-height: var(--font-style-body-line-height);
+        font-weight: var(--font-style-body-medium-weight);
+        text-align: left;
+      }
+
+      .language-option:hover {
+        background: var(--color-bg-overlay-hover);
+        color: var(--color-text-default);
+      }
+
+      .language-option[aria-selected="true"] {
+        background: transparent;
+        color: var(--color-action-primary);
+        font-weight: var(--font-style-body-medium-weight);
+      }
+
+      .language-option[aria-selected="true"]:hover {
+        background: var(--color-bg-overlay-hover);
+        color: var(--color-action-primary);
+      }
+
+      .avatar-button {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-full);
+        background: var(--color-bg-container);
+        cursor: pointer;
+      }
+
+      .avatar-button:focus-visible,
+      .icon-button:focus-visible,
+      .upload-button:focus-visible,
+      .nav-link:focus-visible {
+        outline: none;
+      }
+
+      .avatar-button:focus-visible,
+      .icon-button:focus-visible,
+      .upload-button:focus-visible {
+        border-color: var(--color-action-primary);
+        box-shadow: var(--shadow-focus);
+      }
+
+      .avatar {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--radius-full);
+      }
+
+
+.icon { width:20px; height:20px; flex:0 0 auto; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none; }
+.avatar, .account-profile-avatar { clip-path:circle(46% at 50% 50%); }
+@media(max-width:720px) {
+  .topbar { padding:0 16px; }
+}
+
+/* Guest account buttons use the same icon-button styling as the theme toggle. */
+.guest-avatar-icon { display: block; width: 20px; height: 20px; }
+.guest-avatar-menu { display: grid; place-items: center; width: 100%; height: 100%; color: var(--color-text-tertiary); }
