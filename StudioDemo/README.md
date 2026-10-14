@@ -1,8 +1,8 @@
 # StudioDemo 创作者工作台
 
-仓库：https://github.com/monica137142/creator-center
+仓库：https://github.com/alinaskyliu-hub/creator-center-1-5
 
-网站：https://monica137142.github.io/creator-center/
+网站：https://alinaskyliu-hub.github.io/creator-center-1-5/StudioDemo/
 
 打开 `index.html` 进入内容管理页。使用普通 HTML、CSS 和 JavaScript，可通过本地文件或 HTTP 预览，无需构建。
 
